@@ -1,0 +1,64 @@
+html,
+body
+{
+    font-family: sans-serif, arial;
+
+    margin: 0;
+    padding: 0;
+}
+
+#header
+{
+    padding: 1px 0 0 0;
+
+    text-align: center;
+
+    color: #0b1d29;
+    background-color: #bbb333;
+    box-shadow: 0 6px 10px 1px #c1c1c1;
+}
+
+.logo
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    float: left;
+
+    width: 100px;
+    height: 100px;
+}
+
+.title
+{
+    position: absolute;
+    left: 120px;
+}
+
+.navigation
+{
+    overflow: hidden;
+
+    margin-top: 80px;
+
+    list-style-type: none;
+}
+
+.nav-item a
+{
+    display: block;
+    float: right;
+
+    margin: 0 12px 0 0;
+    padding: 10px;
+
+    text-decoration: none;
+
+    color: purple;
+}
+
+.nav-item:hover a
+{
+    color: gold;
+}
