@@ -12,9 +12,19 @@
     <meta name="description" content="">
     <meta name="keywords" content="EZ, education, volunteering">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--javascript-->
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/components/Main.js"></script>
+    <script src="js/components/About.js"></script>
+    <script src="js/components/User.js"></script>
+    <script src="js/components/Help.js"></script>
+    <script src="js/components/Admin.js"></script>
+    <script src="js/router/index.js"></script>
 </head>
 
-<body>
+<body onload="onLoad()">
     <div id="container">
         <header id="header">
             <img class="logo" src="logo.png">
@@ -30,14 +40,22 @@
                         <a href="#">Our Goal</a>
                     </li>
                     <li class="nav-item">
-                        <a href="About.html">About</a>
+                        <!-- <router-link> will be rendered as an `<a>` tag by default -->
+                        <router-link to="/about">About</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/admin">Admin</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/">Main</router-link>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <p>This is a paragraph.</p>
+            <!-- component matched by the route will render here -->
+            <router-view></router-view>
         </main>
 
         <footer>
