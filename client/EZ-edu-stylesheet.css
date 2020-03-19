@@ -55,10 +55,19 @@ body
 
     text-decoration: none;
 
-    color: purple;
+    color: rgb(132, 21, 171);
 }
 
-.nav-item:hover a
+.nav-item a:hover
 {
+    text-decoration: none;
+
     color: gold;
+}
+
+.nav-item .router-link-active
+{
+    text-decoration: none;
+
+    color: rgb(132, 21, 171);
 }

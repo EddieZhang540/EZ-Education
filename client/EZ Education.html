@@ -23,6 +23,8 @@
     <script src="js/components/User.js"></script>
     <script src="js/components/Help.js"></script>
     <script src="js/components/Admin.js"></script>
+    <script src="js/components/Goal.js"></script>
+    <script src="js/components/Contact.js"></script>
     <script src="js/router/index.js"></script>
 </head>
 
@@ -36,10 +38,10 @@
             <nav>
                 <ul class="navigation">
                     <li class="nav-item">
-                        <a href="#">Contact</a>
+                        <router-link to="/contact">Contact Us</router-link>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Our Goal</a>
+                        <router-link to="/goal">Our Goal</router-link>
                     </li>
                     <li class="nav-item">
                         <!-- <router-link> will be rendered as an `<a>` tag by default -->

@@ -1,6 +1,8 @@
 const routes = [
     { path: '/', component: Main },
     { path: '/about', component: About },
+    { path: '/goal', component: Goal },
+    { path: '/contact', component: Contact },
     {
         path: '/admin',
         component: Admin,
