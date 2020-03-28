@@ -1,4 +1,4 @@
-package com.flexi.module;
+package com.flexi.model;
 
 public class Role {
     private Long id;

@@ -1,6 +1,6 @@
 package com.flexi.dao;
 
-import com.flexi.module.Role;
+import com.flexi.model.Role;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,6 +1,6 @@
 package com.flexi.dao;
 
-import com.flexi.module.User;
+import com.flexi.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,8 +23,12 @@ public interface UserDao {
 
     int deleteUserRolesByUserId(Long userId);
 
-    int setUserRoles(@Param("roleIds") Long[] roleIds, @Param("userId") Long userId);
+    int setUserRoles(@Param("roleIds") String[] roleIds, @Param("userId") Long userId);
 
     User getUserById(@Param("id") Long id);
+
+    int update(User user);
+
+    List<User> getAllUsers();
 }
 

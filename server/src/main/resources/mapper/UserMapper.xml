@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.flexi.dao.UserDao">
-    <resultMap id="UserResultMap" type="com.flexi.module.User">
+    <resultMap id="UserResultMap" type="com.flexi.model.User">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="nickname" property="nickname"/>
@@ -11,17 +11,20 @@
         <result column="enabled" property="enabled"/>
         <result column="email" property="email"/>
         <result column="create_time" property="createTime"/>
-        <collection property="roles" ofType="com.flexi.module.Role">
+        <collection property="roles" ofType="com.flexi.model.Role">
             <id column="role_id" property="id"/>
             <result column="role_name" property="name"/>
         </collection>
     </resultMap>
-    <select id="loadUserByUsername" resultType="com.flexi.module.User">
+    <select id="loadUserByUsername" resultType="com.flexi.model.User">
         SELECT * FROM user WHERE username=#{username}
     </select>
-    <insert id="create" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user set username=#{username},password=#{password},nickname=#{nickname}
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
+        INSERT INTO user set username=#{username},email=#{email},nickname=#{nickname},enabled=#{enabled}
     </insert>
+    <update id="update" parameterType="com.flexi.model.User">
+        UPDATE user set username=#{username},email=#{email},nickname=#{nickname},enabled=#{enabled} WHERE id=#{id}
+    </update>
     <update id="updateUserEmail">
         UPDATE user set email=#{email} WHERE id=#{id}
     </update>
@@ -38,11 +41,14 @@
             </otherwise>
         </choose>
     </select>
+    <select id="getAllUsers" resultType="com.flexi.model.User">
+        SELECT * from user;
+    </select>
     <select id="getUserById" resultMap="UserResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`role_id` AND u.`id`=#{id}
     </select>
-    <select id="getAllRoles" resultType="com.flexi.module.Role">
+    <select id="getAllRoles" resultType="com.flexi.model.Role">
         select * from role;
     </select>
     <update id="updateUserEnabled">

@@ -1,4 +1,4 @@
-package com.flexi.module;
+package com.flexi.model;
 
 public class Greeting {
     private final long id;
