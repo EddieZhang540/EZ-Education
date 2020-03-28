@@ -71,7 +71,7 @@ const User = {
         ]
         axios.get('/users').then(function(response){
             users.concat(response.data.users);
-        }).cache(function(error){
+        }).catch(function(error){
             console.error( error );
         });
         return {
@@ -86,7 +86,7 @@ const User = {
                 if( response.status === 200 ){
                     this.current.user.id = response.data.id;
                 }
-            }).cache(function(error){
+            }).catch(function(error){
                 console.error( error );
             });
         },
@@ -105,7 +105,7 @@ const User = {
                             if( response.status === 200 ){
                                  this.users.splice( i, 1 );
                             }
-                        }).cache(function(error){
+                        }).catch(function(error){
                             console.error( error );
                         });
                     }
@@ -118,7 +118,7 @@ const User = {
                     this.users.push( this.current.user );
                     alert('Success');
                 }
-            }).cache(function(error){
+            }).catch(function(error){
                 console.error( error );
             });
         }
