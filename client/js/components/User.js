@@ -28,6 +28,9 @@ const User = {
                             <input type="checkbox" v-model="current.user.enable"> Enable
                         </label>
                     </div>
+                    <div class="form-group">
+                        <button class="btn btn-default" type="button" v-on:click="save">Save</button>
+                    </div>
                 </form>
             </div>
             <button class="btn btn-default" type="button" v-on:click="create">Create</button>
@@ -50,7 +53,7 @@ const User = {
                         <td>{{ user.createTime }}</td>
                         <td>{{ user.enable }}</td>
                         <td>
-                            <button v-on:click="update(user.id)">Update</button>
+                            <button v-on:click="select(user.id)">Update</button>
                             <button v-on:click="remove(user.id)">Delete</button>
                         </td>
                     </tr>
@@ -59,36 +62,65 @@ const User = {
         </div>
     `,
     data: function(){
+        var users = [
+            /* { id: '1', username: 'test1', nickName:'T1', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
+            { id: '2', username: 'test2', nickName:'T2', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
+            { id: '3', username: 'test3', nickName:'T3', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
+            { id: '4', username: 'test4', nickName:'T4', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
+            { id: '5', username: 'test5', nickName:'T5', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true } */
+        ]
+        axios.get('/users').then(function(response){
+            users.concat(response.data.users);
+        }).cache(function(error){
+            console.error( error );
+        });
         return {
-            users: [
-                { id: '1', username: 'test1', nickName:'T1', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
-                { id: '2', username: 'test2', nickName:'T2', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
-                { id: '3', username: 'test3', nickName:'T3', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
-                { id: '4', username: 'test4', nickName:'T4', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true },
-                { id: '5', username: 'test5', nickName:'T5', email:'test1@test.com', createTime:new Date('2020-03-08'), enable: true }
-            ],
+            users: users,
             current : { user: null }
         };
     },
     methods: {
         create: function(){
-            this.current.user = { id: randomString(10), username: '', nickName:'', email:'', createTime:new Date(), enable: true };
-            this.users.push( this.current.user );
+            this.current.user = { username: '', nickName:'', email:'', createTime:new Date(), enable: true };
+            axios.post('/users', this.current.user).then(function(response){
+                if( response.status === 200 ){
+                    this.current.user.id = response.data.id;
+                }
+            }).cache(function(error){
+                console.error( error );
+            });
         },
-        update: function(userId){
+        select: function(userId){
             for ( var i in this.users ) {
                 if ( this.users[i].id === userId ) {
-                    console.log(userId)
-                    this.current.user = this.users[i];
+                   this.current.user = this.users[i];
                 }
             }
         },
         remove: function(userId){
-            for ( var i in this.users ) {
-                if ( this.users[i].id === userId ) {
-                    this.users.splice( i, 1 );
+            if( confirm('Are you sure?') ){
+                for ( var i in this.users ) {
+                    if ( this.users[i].id === userId ) {
+                        axios.delete('/users/'+userId).then(function(response){
+                            if( response.status === 200 ){
+                                 this.users.splice( i, 1 );
+                            }
+                        }).cache(function(error){
+                            console.error( error );
+                        });
+                    }
                 }
             }
+        },
+        save: function(usreId){
+            axios.update('/users/'+userId, this.current.user).then(function(response){
+                if( response.status === 200 ){
+                    this.users.push( this.current.user );
+                    alert('Success');
+                }
+            }).cache(function(error){
+                console.error( error );
+            });
         }
     }
 }
