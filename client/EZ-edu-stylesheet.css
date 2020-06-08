@@ -5,6 +5,7 @@
 :root
 {
     --purple: #8415ab;
+    --darkpurple: #5c0e78;
     --yellow: #e4d618;
     --lightgray: #e4e4e4;
     --darkgray: #4f4f4f;
@@ -30,8 +31,8 @@ body
 
 nav
 {
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0px 2px 5px var(--lightgray);
+    background-color: rgba(255, 255, 255, 0.99);
+    box-shadow: 0px 1px 5px var(--white);
 }
 .navbar-brand
 {
@@ -70,16 +71,21 @@ nav
 }
 .nav-item .btn-primary
 {
-    color: var(--black);
+    color: var(--white);
     background-color: var(--purple);
     border-color: var(--purple);
+}
+.nav-item .btn-primary:hover
+{
+    color: var(--yellow);
+    background-color: var(--darkpurple);
+    border-color: var(--darkpurple);
 }
 
 
 /* main body */
 main
 {
-    padding-top: 105px;
     background-color: var(--lightgray);
 }
 
@@ -99,7 +105,7 @@ main
 }
 .caption
 {
-    padding-top: 30vh;
+    padding-top: 38vh;
 
     width: 100%;
     max-width: 100%;
@@ -109,7 +115,7 @@ main
 .caption h1
 {
     font-size: 57px;
-    font-weight: bold;
+    font-weight: bolder;
 
     margin-bottom: 20px;
 
