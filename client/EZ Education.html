@@ -9,6 +9,7 @@
 
     <!-- Bootstrap 4.5 CSS-->
     <link rel="stylesheet" href="bootstrap-4.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/tagsinput.css">
 
     <!-- custom stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="fixed.css"> -->
@@ -24,6 +25,7 @@
     <script src="js/axios.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
+    <script src="js/voerro-vue-tagsinput.js"></script>
 
     <script src="js/components/Home.js"></script>
     <script src="js/components/About.js"></script>
@@ -32,6 +34,8 @@
     <script src="js/components/Admin.js"></script>
     <script src="js/components/Goal.js"></script>
     <script src="js/components/Contact.js"></script>
+    <script src="js/components/Register.js"></script>
+    <script src="js/components/Login.js"></script>
     <script src="js/router/index.js"></script>
 </head>
 
@@ -70,10 +74,10 @@
                             <router-link class="nav-link" to="/contact">Contact Us</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary" href="#">Sign Up</a>
+                            <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="#">Log In</a>
+                            <a class="btn btn-primary" v-on:click="login">Log In</a>
                         </li>
                     </ul>
                 </div>
@@ -109,6 +113,108 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form>
+                            <div class="form-group">
+                                <label for="register-form-username">User Name</label>
+                                <p v-if="errors.username" class="text-danger">{{errors.username}}</p>
+                                <input type="text" class="form-control" id="register-form-username" placeholder="Username" v-model="user.username"
+                                       v-bind:class="{ 'border-danger': errors.username }" >
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-surname">Surname</label>
+                                <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
+                                <input type="text" class="form-control" id="register-form-surname" placeholder="Surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-given">Given Name</label>
+                                <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
+                                <input type="text" class="form-control" id="register-form-given" placeholder="Given Name" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-age">Age</label>
+                                <input type="text" class="form-control" id="register-form-age" placeholder="Age" v-model="user.age">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-phone">Phone</label>
+                                <input type="text" class="form-control" id="register-form-phone" placeholder="Phone" v-model="user.phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-address">address</label>
+                                <input type="text" class="form-control" id="register-form-address" placeholder="Address" v-model="user.address">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-webchat">Webchat</label>
+                                <input type="text" class="form-control" id="register-form-webchat" placeholder="Webchat" v-model="user.webchat">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-timezone">Timezone</label>
+                                <input type="text" class="form-control" id="register-form-timezone" placeholder="Timezone" v-model="user.timezone">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-school">School</label>
+                                <input type="text" class="form-control" id="register-form-school" placeholder="School" v-model="user.school">
+                            </div>
+                            <div class="form-group" id="register-form-hobby-field">
+                                <label for="register-form-hobby">Hobby</label>
+                                <voerro-tags-input type="text" element-id="register-form-hobby" v-model="user.hobby" ></voerro-tags-input>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-purpose">purpose</label>
+                                <textarea class="form-control" id="register-form-purpose" v-model="user.purpose"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-form-skill">Skill</label>
+                                <textarea type="text" class="form-control" id="register-form-skill" v-model="user.skill"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" v-on:click="create">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="login-form-username">Username</label>
+                        <input type="text" class="form-control" id="login-form-username" v-model="user.username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-form-password">Password</label>
+                        <input type="password" class="form-control" id="login-form-password" v-model="user.password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" v-on:click="login">Login</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap 4.4.1 with CDN -->

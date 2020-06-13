@@ -27,22 +27,24 @@ public class UserService {
     public Response create(User user) {
         Response response = new Response();
 
-//        User loadUserByUsername = userDao.loadUserByUsername(user.getUsername());
-//        if (loadUserByUsername != null) {
-//            response.setResult("duplicate_user");
-//            return response;
-//        }
+        User loadUserByUsername = userDao.loadUserByUsername(user.getUsername());
+        if (loadUserByUsername != null) {
+            response.setResult("duplicate_user");
+            return response;
+        }
         //user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-        user.setPassword("123456");
         user.setEnabled(true);
         long result = userDao.create(user);
 //        String[] roles = new String[]{"client"};
 //        int i = roleDao.addRoles(roles, user.getId());
 //        boolean b = i == roles.length && result == 1;
-
-        response.setResult("success");
-        response.setModel(user);
-
+        if( result == 1){
+            response.setResult("success");
+            response.setModel(user);
+        }else{
+            response.setResult("failed");
+            response.setModel(user);
+        }
         return response;
     }
 
