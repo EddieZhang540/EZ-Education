@@ -35,10 +35,22 @@ public class UserService {
         //user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         user.setEnabled(true);
         long result = userDao.create(user);
-//        String[] roles = new String[]{"client"};
-//        int i = roleDao.addRoles(roles, user.getId());
-//        boolean b = i == roles.length && result == 1;
-        if( result == 1){
+        List<Role> allRoles = roleDao.getAllRoles();
+        long roleId = 0;
+        for( int i=0; i<allRoles.size(); i++ ){
+            if( user.getRole().equals(allRoles.get(i).getName()) ){
+                roleId = allRoles.get(i).getId();
+            }
+        }
+        if( roleId == 0 ){
+            response.setResult("failed");
+            response.setModel(user);
+            return response;
+        }
+        String[] roles = new String[]{ roleId +"" };
+        int i = roleDao.addRoles(roles, user.getId());
+        boolean success = i == roles.length && result == 1;
+        if( success ){
             response.setResult("success");
             response.setModel(user);
         }else{

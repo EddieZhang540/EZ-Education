@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.3.1 (64 bit)
 MySQL - 8.0.19 : Database - app
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -24,13 +25,17 @@ CREATE TABLE `role` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `role` */
 
-insert  into `role`(`id`,`name`) values 
-(1,'admin'),
-(2,'client');
+insert  into `role`(`id`,`name`) values 
+
+(1,'admin'),
+
+(2,'student'),
+
+(3,'teacher');
 
 /*Table structure for table `role_user` */
 
@@ -45,7 +50,7 @@ CREATE TABLE `role_user` (
   KEY `role_user_ibfk_2` (`user_id`),
   CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
   CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `role_user` */
 
@@ -56,21 +61,31 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(64) DEFAULT NULL,
-  `nickname` varchar(64) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
   `email` varchar(64) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
+  `surname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `givenname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `age` tinyint DEFAULT NULL,
+  `phone` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `webchat` varchar(64) DEFAULT NULL,
+  `timezone` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `school` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `hobby` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `purpose` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `skill` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`nickname`,`password`,`enabled`,`email`,`create_time`) values 
-(2,'Test1','test1','123456',1,'test1@test.com','2020-03-28 14:03:59'),
-(3,'Test2','Test2','123456',1,'test2@test.com','2020-03-28 14:04:04'),
-(9,'test9','sdfsdf',NULL,1,'sdfdsf@sdf.com',NULL),
-(11,'test11','tedwef',NULL,1,'sds@fhwoe.com',NULL);
+insert  into `user`(`id`,`username`,`password`,`enabled`,`email`,`create_time`,`surname`,`givenname`,`age`,`phone`,`address`,`webchat`,`timezone`,`school`,`hobby`,`purpose`,`skill`) values 
+
+(2,'Test1','123456',1,'test1@test.com','2020-03-28 14:03:59','','',0,'','',NULL,'','','','',''),
+
+(3,'Test2','123456',1,'test2@test.com','2020-03-28 14:04:04','','',0,'','',NULL,'','','','','');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

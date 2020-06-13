@@ -29,7 +29,7 @@
         SELECT * FROM user WHERE username=#{username}
     </select>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
-        INSERT INTO user set username=#{username},givenname=#{givenname},surname=#{surname},age=#{age},
+        INSERT INTO user set username=#{username},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
         phone=#{phone},address=#{address},webchat=#{webchat},timezone=#{timezone},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>

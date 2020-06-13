@@ -27,6 +27,15 @@ public class User implements UserDetails {
     private String hobby;
     private String purpose;
     private String skill;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getSurname() {
         return surname;

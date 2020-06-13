@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.flexi.dao.RoleDao">
     <select id="getAllRoles" resultType="com.flexi.model.Role">
-        SELECT r.* FROM role r where r.id="1"
+        SELECT r.* FROM role r
     </select>
+    <insert id="addRoles">
+        INSERT INTO role_user VALUES
+        <foreach collection="roles" item="role" separator=",">
+            (null,#{role},#{userId})
+        </foreach>
+    </insert>
 </mapper>
