@@ -27,22 +27,36 @@ public class UserService {
     public Response create(User user) {
         Response response = new Response();
 
-//        User loadUserByUsername = userDao.loadUserByUsername(user.getUsername());
-//        if (loadUserByUsername != null) {
-//            response.setResult("duplicate_user");
-//            return response;
-//        }
+        User loadUserByUsername = userDao.loadUserByUsername(user.getUsername());
+        if (loadUserByUsername != null) {
+            response.setResult("duplicate_user");
+            return response;
+        }
         //user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-        user.setPassword("123456");
         user.setEnabled(true);
         long result = userDao.create(user);
-//        String[] roles = new String[]{"client"};
-//        int i = roleDao.addRoles(roles, user.getId());
-//        boolean b = i == roles.length && result == 1;
-
-        response.setResult("success");
-        response.setModel(user);
-
+        List<Role> allRoles = roleDao.getAllRoles();
+        long roleId = 0;
+        for( int i=0; i<allRoles.size(); i++ ){
+            if( user.getRole().equals(allRoles.get(i).getName()) ){
+                roleId = allRoles.get(i).getId();
+            }
+        }
+        if( roleId == 0 ){
+            response.setResult("failed");
+            response.setModel(user);
+            return response;
+        }
+        String[] roles = new String[]{ roleId +"" };
+        int i = roleDao.addRoles(roles, user.getId());
+        boolean success = i == roles.length && result == 1;
+        if( success ){
+            response.setResult("success");
+            response.setModel(user);
+        }else{
+            response.setResult("failed");
+            response.setModel(user);
+        }
         return response;
     }
 

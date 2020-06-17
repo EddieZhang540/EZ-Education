@@ -9,6 +9,6 @@ import java.io.IOException;
 public class BaseController {
     @GetMapping("/")
     public void base(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/greeting");
+        response.sendRedirect("/EZ Education.html");
     }
 }

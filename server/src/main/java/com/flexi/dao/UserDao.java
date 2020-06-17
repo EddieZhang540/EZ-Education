@@ -13,9 +13,9 @@ public interface UserDao {
 
     long create(User user);
 
-    int updateUserEmail(@Param("email") String email, @Param("id") Long id);
+    int updateUserWebchat(@Param("webchat") String webchat, @Param("id") Long id);
 
-    List<User> getUserByNickname(@Param("nickname") String nickname);
+    List<User> getUserByUsername(@Param("username") String username);
 
     int updateUserEnabled(@Param("enabled") Boolean enabled, @Param("id") Long id);
 

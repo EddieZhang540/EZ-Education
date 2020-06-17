@@ -20,6 +20,19 @@ const router = new VueRouter({
 
 function onLoad(){
     const app = new Vue({
-      router
+        router,
+        methods : {
+            signup : function(){
+                $('#registerModal').modal('show');
+            },
+            login : function(){
+                $('#loginModal').modal('show');
+            }
+      }
     }).$mount('#container');
+
+    new Vue(Register).$mount('#registerModal');
+    new Vue(Login).$mount('#loginModal');
+
+
 }

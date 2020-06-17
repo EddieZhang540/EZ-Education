@@ -6,10 +6,19 @@
     <resultMap id="UserResultMap" type="com.flexi.model.User">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
-        <result column="nickname" property="nickname"/>
+        <result column="givenname" property="givenname"/>
+        <result column="surname" property="surname"/>
+        <result column="age" property="age"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="webchat" property="webchat"/>
+        <result column="timezone" property="timezone"/>
+        <result column="school" property="school"/>
+        <result column="hobby" property="hobby"/>
+        <result column="purpose" property="purpose"/>
+        <result column="skill" property="skill"/>
         <result column="password" property="password"/>
         <result column="enabled" property="enabled"/>
-        <result column="email" property="email"/>
         <result column="create_time" property="createTime"/>
         <collection property="roles" ofType="com.flexi.model.Role">
             <id column="role_id" property="id"/>
@@ -20,21 +29,25 @@
         SELECT * FROM user WHERE username=#{username}
     </select>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
-        INSERT INTO user set username=#{username},email=#{email},nickname=#{nickname},enabled=#{enabled}
+        INSERT INTO user set username=#{username},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
+        phone=#{phone},address=#{address},webchat=#{webchat},timezone=#{timezone},school=#{school},
+        hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>
     <update id="update" parameterType="com.flexi.model.User">
-        UPDATE user set username=#{username},email=#{email},nickname=#{nickname},enabled=#{enabled} WHERE id=#{id}
+        UPDATE user set username=#{username},givenname=#{givenname},surname=#{surname},age=#{age},
+        phone=#{phone},address=#{address},webchat=#{webchat},timezone=#{timezone},school=#{school},
+        hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
     </update>
-    <update id="updateUserEmail">
-        UPDATE user set email=#{email} WHERE id=#{id}
+    <update id="updateUserWebchat">
+        UPDATE user set webchat=#{webchat} WHERE id=#{id}
     </update>
-    <select id="getUserByNickname" resultMap="UserResultMap">
+    <select id="getUserByUsername" resultMap="UserResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`rid` AND u.`id` NOT IN(SELECT u.`id` FROM user u,role_user ru WHERE u.`id`=ru.`user_id`
         AND ru.`role_id`=1)
         <choose>
-            <when test="nickname!=null and nickname!=''">
-                and u.nickname like concat('%',#{nickname},'%') ORDER BY u.`id`
+            <when test="username!=null and username!=''">
+                and u.username like concat('%',#{username},'%') ORDER BY u.`id`
             </when>
             <otherwise>
                 ORDER BY u.`id` limit 20

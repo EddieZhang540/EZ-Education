@@ -9,6 +9,7 @@
 
     <!-- Bootstrap 4.5 CSS-->
     <link rel="stylesheet" href="bootstrap-4.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/tagsinput.css">
 
     <!-- custom stylesheet -->
     <!-- <link rel="stylesheet" type="text/css" href="fixed.css"> -->
@@ -24,6 +25,7 @@
     <script src="js/axios.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
+    <script src="js/voerro-vue-tagsinput.js"></script>
 
     <script src="js/components/Home.js"></script>
     <script src="js/components/About.js"></script>
@@ -32,6 +34,8 @@
     <script src="js/components/Admin.js"></script>
     <script src="js/components/Goal.js"></script>
     <script src="js/components/Contact.js"></script>
+    <script src="js/components/Register.js"></script>
+    <script src="js/components/Login.js"></script>
     <script src="js/router/index.js"></script>
 </head>
 
@@ -70,10 +74,10 @@
                             <router-link class="nav-link" to="/contact">Contact Us</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary" href="sign-up-page.html">Sign Up</a>
+                            <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="#">Log In</a>
+                            <a class="btn btn-primary" v-on:click="login">Log In</a>
                         </li>
                     </ul>
                 </div>
@@ -143,6 +147,158 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on:click="cancel">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form>
+                            <div class="form-group" v-if="!user.role">
+                                <label for="register-form-username">I AM A...</label>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" v-on:click="role('student')">Student</button>
+                                    <button type="button" class="btn btn-secondary" v-on:click="role('teacher')">Teacher</button>
+                                </div>
+                            </div>
+                            <template v-if="!acceptAgreement && user.role === 'teacher'">
+                                <div class="form-group">
+                                    <h4>Software Licensing and Service Agreements</h4>
+                                    In this special remind users read and fully understand the "software
+                                    license and service agreement" (hereinafter referred to as the "agreement") -
+                                    users should carefully read and fully understand the terms in this agreement, including
+                                    to waive or limit our liability disclaimer and rights restrictions to the user. Please
+                                    read carefully and choose to accept or not accept this agreement (minors should be
+                                    accompanied by legal guardians). Unless you accept all the terms of this agreement,
+                                    you are not entitled to download, install, or use this software and its related services.
+                                </div>
+                            </template>
+                            <template v-if="user.role === 'student' || (acceptAgreement && user.role === 'teacher')">
+                                <div class="form-group">
+                                    <label for="register-form-username">User Name</label>
+                                    <p v-if="errors.username" class="text-danger">{{errors.username}}</p>
+                                    <input type="text" class="form-control" id="register-form-username" placeholder="Username" v-model="user.username"
+                                           v-bind:class="{ 'border-danger': errors.username }" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-username">Password</label>
+                                    <p v-if="errors.password" class="text-danger">{{errors.password}}</p>
+                                    <input type="password" class="form-control" id="register-form-password" v-model="user.password"
+                                           v-bind:class="{ 'border-danger': errors.username }" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-confirm-password">Confirm Password</label>
+                                    <p v-if="errors.confirmPassword" class="text-danger">{{errors.confirmPassword}}</p>
+                                    <input type="password" class="form-control" id="register-form-confirm-password" v-model="confirmPassword"
+                                           v-bind:class="{ 'border-danger': errors.confirmPassword }" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-surname">Surname</label>
+                                    <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
+                                    <input type="text" class="form-control" id="register-form-surname" placeholder="Surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-given">Given Name</label>
+                                    <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
+                                    <input type="text" class="form-control" id="register-form-given" placeholder="Given Name" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-age">Age</label>
+                                    <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
+                                    <input type="number" class="form-control" id="register-form-age" placeholder="Age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }"
+                                           oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-phone">Phone</label>
+                                    <p v-if="errors.phone" class="text-danger">{{errors.phone}}</p>
+                                    <input type="text" class="form-control" id="register-form-phone" placeholder="Phone" v-model="user.phone" v-bind:class="{ 'border-danger': errors.phone }">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-address">address</label>
+                                    <p v-if="errors.address" class="text-danger">{{errors.address}}</p>
+                                    <input type="text" class="form-control" id="register-form-address" placeholder="Address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-webchat">Webchat</label>
+                                    <p v-if="errors.webchat" class="text-danger">{{errors.webchat}}</p>
+                                    <input type="text" class="form-control" id="register-form-webchat" placeholder="Webchat" v-model="user.webchat" v-bind:class="{ 'border-danger': errors.webchat }">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-timezone">Timezone</label>
+                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>
+                                    <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">
+                                        <option v-for="option in timezone" v-bind:value="option.value">
+                                            {{ option.text }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-school">School</label>
+                                    <p v-if="errors.school" class="text-danger">{{errors.school}}</p>
+                                    <input type="text" class="form-control" id="register-form-school" placeholder="School" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }">
+                                </div>
+                                <div class="form-group" id="register-form-hobby-field">
+                                    <label for="register-form-hobby">Hobby</label>
+                                    <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+                                    <voerro-tags-input type="text" element-id="register-form-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
+                                </div>
+                            </template>
+                            <template v-if="acceptAgreement && user.role === 'teacher'">
+                                <div class="form-group">
+                                    <label for="register-form-purpose">Why do you want to join this program?</label>
+                                    <p v-if="errors.purpose" class="text-danger">{{errors.purpose}}</p>
+                                    <textarea class="form-control" id="register-form-purpose" v-model="user.purpose" v-bind:class="{ 'border-danger': errors.purpose }"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-skill">What skills do you have that will make you a great volunteer teacher?</label>
+                                    <p v-if="errors.skill" class="text-danger">{{errors.skill}}</p>
+                                    <textarea type="text" class="form-control" id="register-form-skill" v-model="user.skill" v-bind:class="{ 'border-danger': errors.skill }"></textarea>
+                                </div>
+                            </template>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="cancel">Cancel</button>
+                    <button type="button" class="btn btn-primary" v-if="user.role ==='student' || (acceptAgreement && user.role ==='teacher')" v-on:click="create">Register</button>
+                    <button type="button" class="btn btn-primary" v-if="!acceptAgreement && user.role ==='teacher'" v-on:click="accept">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="login-form-username">Username</label>
+                        <input type="text" class="form-control" id="login-form-username" v-model="user.username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-form-password">Password</label>
+                        <input type="password" class="form-control" id="login-form-password" v-model="user.password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" v-on:click="login">Login</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap 4.4.1 with CDN -->
