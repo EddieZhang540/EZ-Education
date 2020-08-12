@@ -11,7 +11,7 @@ import java.util.List;
 
 public class User implements UserDetails {
     private Long id;
-    private String username;
+    private String email;
     private String password;
     private boolean enabled;
     private List<Role> roles;
@@ -19,9 +19,8 @@ public class User implements UserDetails {
     private String surname;
     private String givenname;
     private int age;
-    private String phone;
     private String address;
-    private String webchat;
+    private String wechat;
     private String timezone;
     private String school;
     private String hobby;
@@ -61,14 +60,6 @@ public class User implements UserDetails {
         this.age = age;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -77,12 +68,12 @@ public class User implements UserDetails {
         this.address = address;
     }
 
-    public String getWebchat() {
-        return webchat;
+    public String getWechat() {
+        return wechat;
     }
 
-    public void setWebchat(String webchat) {
-        this.webchat = webchat;
+    public void setWechat(String wechat) {
+        this.wechat = wechat;
     }
 
     public String getTimezone() {
@@ -149,9 +140,11 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
+
+    public String getUsername() {return email; }
 
     @Override
     @JsonIgnore
@@ -190,8 +183,8 @@ public class User implements UserDetails {
         return authorities;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

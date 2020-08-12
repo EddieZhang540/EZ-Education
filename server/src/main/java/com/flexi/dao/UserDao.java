@@ -9,13 +9,13 @@ import java.util.List;
 @Mapper
 public interface UserDao {
 
-    User loadUserByUsername(@Param("username") String username);
+    User loadUserByEmail(@Param("email") String email);
 
     long create(User user);
 
-    int updateUserWebchat(@Param("webchat") String webchat, @Param("id") Long id);
+    int updateUserWechat(@Param("wechat") String wechat, @Param("id") Long id);
 
-    List<User> getUserByUsername(@Param("username") String username);
+    List<User> getUserByEmail(@Param("email") String email);
 
     int updateUserEnabled(@Param("enabled") Boolean enabled, @Param("id") Long id);
 

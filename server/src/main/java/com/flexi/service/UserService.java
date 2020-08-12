@@ -27,8 +27,8 @@ public class UserService {
     public Response create(User user) {
         Response response = new Response();
 
-        User loadUserByUsername = userDao.loadUserByUsername(user.getUsername());
-        if (loadUserByUsername != null) {
+        User loadUserByEmail = userDao.loadUserByEmail(user.getEmail());
+        if (loadUserByEmail != null) {
             response.setResult("duplicate_user");
             return response;
         }

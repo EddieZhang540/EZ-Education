@@ -5,13 +5,12 @@
 <mapper namespace="com.flexi.dao.UserDao">
     <resultMap id="UserResultMap" type="com.flexi.model.User">
         <id column="id" property="id"/>
-        <result column="username" property="username"/>
+        <result column="email" property="email"/>
         <result column="givenname" property="givenname"/>
         <result column="surname" property="surname"/>
         <result column="age" property="age"/>
-        <result column="phone" property="phone"/>
         <result column="address" property="address"/>
-        <result column="webchat" property="webchat"/>
+        <result column="wechat" property="wechat"/>
         <result column="timezone" property="timezone"/>
         <result column="school" property="school"/>
         <result column="hobby" property="hobby"/>
@@ -25,29 +24,29 @@
             <result column="role_name" property="name"/>
         </collection>
     </resultMap>
-    <select id="loadUserByUsername" resultType="com.flexi.model.User">
-        SELECT * FROM user WHERE username=#{username}
+    <select id="loadUserByEmail" resultType="com.flexi.model.User">
+        SELECT * FROM user WHERE email=#{email}
     </select>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
-        INSERT INTO user set username=#{username},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
-        phone=#{phone},address=#{address},webchat=#{webchat},timezone=#{timezone},school=#{school},
+        INSERT INTO user set email=#{email},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
+        address=#{address},wechat=#{wechat},timezone=#{timezone},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>
     <update id="update" parameterType="com.flexi.model.User">
-        UPDATE user set username=#{username},givenname=#{givenname},surname=#{surname},age=#{age},
-        phone=#{phone},address=#{address},webchat=#{webchat},timezone=#{timezone},school=#{school},
+        UPDATE user set email=#{email},givenname=#{givenname},surname=#{surname},age=#{age},
+        address=#{address},wechat=#{wechat},timezone=#{timezone},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
     </update>
-    <update id="updateUserWebchat">
-        UPDATE user set webchat=#{webchat} WHERE id=#{id}
+    <update id="updateUserWechat">
+        UPDATE user set wechat=#{wechat} WHERE id=#{id}
     </update>
-    <select id="getUserByUsername" resultMap="UserResultMap">
+    <select id="getUserByEmail" resultMap="UserResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`rid` AND u.`id` NOT IN(SELECT u.`id` FROM user u,role_user ru WHERE u.`id`=ru.`user_id`
         AND ru.`role_id`=1)
         <choose>
-            <when test="username!=null and username!=''">
-                and u.username like concat('%',#{username},'%') ORDER BY u.`id`
+            <when test="email!=null and email!=''">
+                and u.email like concat('%',#{email},'%') ORDER BY u.`id`
             </when>
             <otherwise>
                 ORDER BY u.`id` limit 20

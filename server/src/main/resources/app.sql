@@ -60,17 +60,15 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
-  `email` varchar(64) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `surname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `givenname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `age` tinyint DEFAULT NULL,
-  `phone` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `webchat` varchar(64) DEFAULT NULL,
+  `wechat` varchar(64) DEFAULT NULL,
   `timezone` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `school` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `hobby` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -81,11 +79,11 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`password`,`enabled`,`email`,`create_time`,`surname`,`givenname`,`age`,`phone`,`address`,`webchat`,`timezone`,`school`,`hobby`,`purpose`,`skill`) values 
+insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`address`,`wechat`,`timezone`,`school`,`hobby`,`purpose`,`skill`) values
 
-(2,'Test1','123456',1,'test1@test.com','2020-03-28 14:03:59','','',0,'','',NULL,'','','','',''),
+(2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',NULL,'','','',''),
 
-(3,'Test2','123456',1,'test2@test.com','2020-03-28 14:04:04','','',0,'','',NULL,'','','','','');
+(3,'test2@test.com','123456',1,'2020-03-28 14:04:04','','',0,'','',NULL,'','','','');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

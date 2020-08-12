@@ -157,6 +157,23 @@ hr.short
     justify-content: center;
 }
 
+/* register form */
+.form-required
+{
+    color: var(--red);
+}
+
+.form-group label
+{
+    margin-bottom: 0px;
+}
+
+.field-caption
+{
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
 
 footer
 {

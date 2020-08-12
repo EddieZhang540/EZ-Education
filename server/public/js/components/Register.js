@@ -53,7 +53,7 @@ const Register = {
                         $('#registerModal').modal('hide');
                         this.cancel();
                     }else if(response.data.result === 'duplicate_user'){
-                        alert('Username exists. Please try another one.');
+                        alert('This email has already been registered. Please use another one.');
                     }else if(response.data.result === 'failed'){
                         alert('Register failed. Please try again later.');
                     }
@@ -72,20 +72,23 @@ const Register = {
         },
         validateForm: function(){
             this.errors = {};
-            this.validateUsername();
+            this.validateEmail();
             this.validatePassword();
             this.validateConfirmPassword();
             this.validateSurname();
             this.validateGivenname();
+            this.validateAge();
+            this.validateTimezone();
+            this.validateHobbies();
             for( let key in this.errors){
                 return false;
             }
             return true;
         },
-        validateUsername: function(){
-            delete this.errors.username;
-            if(!this.user.username){
-                this.errors.username='Username is required.';
+        validateEmail: function(){
+            delete this.errors.email;
+            if(!this.user.email){
+                this.errors.email='Email is required.';
             }
         },
         validatePassword: function(){
@@ -99,7 +102,7 @@ const Register = {
             if(!this.confirmPassword){
                 this.errors.confirmPassword='Confirm password is required.';
             }else if( this.confirmPassword !== this.user.password ){
-                this.errors.confirmPassword='Password and confirm password must match.';
+                this.errors.confirmPassword='Password and the confirm password must match.';
             }
         },
         validateSurname: function(){
@@ -119,12 +122,24 @@ const Register = {
             if(!this.user.age){
                 this.errors.age='Age is required.';
             }
+        },
+        validateTimezone: function(){
+            delete this.errors.timezone;
+            if(!this.user.timezone){
+                this.errors.timezone='Please select a timezone.';
+            }
+        },
+        validateHobbies: function(){
+            delete this.errors.hobbies;
+            if(!this.user.hobbies){
+                this.errors.hobbies='Please enter at least 2 hobbies.';
+            }
         }
     },
     components: { VoerroTagsInput },
     watch : {
-        "user.username" : function(){
-            this.validateUsername();
+        "user.email" : function(){
+            this.validateEmail();
         },
         "user.password" : function(){
             this.validatePassword();
@@ -134,6 +149,15 @@ const Register = {
         },
         "user.givenname" : function(){
             this.validateGivenname();
+        },
+        "user.age" : function(){
+            this.validateAge();
+        },
+        "user.timezone" : function(){
+            this.validateTimezone();
+        },
+        "user.hobbies" : function(){
+            this.validateHobbies();
         }
     }
 }

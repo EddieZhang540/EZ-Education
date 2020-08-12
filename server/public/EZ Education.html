@@ -149,6 +149,7 @@
         </footer>
     </div>
 
+    <!--register modal form-->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -162,7 +163,7 @@
                     <div class="container">
                         <form>
                             <div class="form-group" v-if="!user.role">
-                                <label for="register-form-username">I AM A...</label>
+                                <label for="register-form-email">I am a...</label>
                                 <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-secondary" v-on:click="role('student')">Student</button>
                                     <button type="button" class="btn btn-secondary" v-on:click="role('teacher')">Teacher</button>
@@ -181,85 +182,83 @@
                                 </div>
                             </template>
                             <template v-if="user.role === 'student' || (acceptAgreement && user.role === 'teacher')">
+                                <p> <span class="form-required">*</span> is a required field </p>
                                 <div class="form-group">
-                                    <label for="register-form-username">User Name</label>
-                                    <p v-if="errors.username" class="text-danger">{{errors.username}}</p>
-                                    <input type="text" class="form-control" id="register-form-username" placeholder="Username" v-model="user.username"
-                                           v-bind:class="{ 'border-danger': errors.username }" >
+                                    <label for="register-form-email">Email: <span class="form-required">*</span></label>
+                                    <p class="field-caption">You will use this email address to log into your account.</p>
+                                    <input type="text" class="form-control" id="register-form-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }">
+                                    <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-username">Password</label>
+                                    <label for="register-form-password">Password: <span class="form-required">*</span></label>
+                                    <p class="field-caption">Your password must be between 6-15 characters.</p>
+                                    <input type="password" class="form-control" id="register-form-password" v-model="user.password" v-bind:class="{ 'border-danger': errors.password }">
                                     <p v-if="errors.password" class="text-danger">{{errors.password}}</p>
-                                    <input type="password" class="form-control" id="register-form-password" v-model="user.password"
-                                           v-bind:class="{ 'border-danger': errors.username }" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-confirm-password">Confirm Password</label>
+                                    <label for="register-form-confirm-password">Confirm Password: <span class="form-required">*</span></label>
+                                    <input type="password" class="form-control" id="register-form-confirm-password" v-model="confirmPassword" v-bind:class="{ 'border-danger': errors.confirmPassword }">
                                     <p v-if="errors.confirmPassword" class="text-danger">{{errors.confirmPassword}}</p>
-                                    <input type="password" class="form-control" id="register-form-confirm-password" v-model="confirmPassword"
-                                           v-bind:class="{ 'border-danger': errors.confirmPassword }" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-surname">Surname</label>
+                                    <label for="register-form-surname">Surname/Last name: <span class="form-required">*</span></label>
+                                    <p class="field-caption">Please do not use non-English characters. (Eg. Use PinYin instead of Chinese)</p>
+                                    <input type="text" class="form-control" id="register-form-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
                                     <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
-                                    <input type="text" class="form-control" id="register-form-surname" placeholder="Surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-given">Given Name</label>
+                                    <label for="register-form-given">Given Name/First name: <span class="form-required">*</span></label>
+                                    <p class="field-caption">Please do not use non-English characters. (Eg. Use PinYin instead of Chinese)</p>
+                                    <input type="text" class="form-control" id="register-form-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
                                     <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
-                                    <input type="text" class="form-control" id="register-form-given" placeholder="Given Name" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-age">Age</label>
+                                    <label for="register-form-age">Age: <span class="form-required">*</span></label>
+                                    <input type="number" class="form-control" id="register-form-age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }"
+                                      oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0">
                                     <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
-                                    <input type="number" class="form-control" id="register-form-age" placeholder="Age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }"
-                                           oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-phone">Phone</label>
-                                    <p v-if="errors.phone" class="text-danger">{{errors.phone}}</p>
-                                    <input type="text" class="form-control" id="register-form-phone" placeholder="Phone" v-model="user.phone" v-bind:class="{ 'border-danger': errors.phone }">
-                                </div>
-                                <div class="form-group">
-                                    <label for="register-form-address">address</label>
+                                    <label for="register-form-address">Address: </label>
+                                    <input type="text" class="form-control" id="register-form-address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }">
                                     <p v-if="errors.address" class="text-danger">{{errors.address}}</p>
-                                    <input type="text" class="form-control" id="register-form-address" placeholder="Address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }">
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-webchat">Webchat</label>
-                                    <p v-if="errors.webchat" class="text-danger">{{errors.webchat}}</p>
-                                    <input type="text" class="form-control" id="register-form-webchat" placeholder="Webchat" v-model="user.webchat" v-bind:class="{ 'border-danger': errors.webchat }">
+                                    <label for="register-form-wechat">WeChat ID: </label>
+                                    <input type="text" class="form-control" id="register-form-wechat" v-model="user.wechat" v-bind:class="{ 'border-danger': errors.wechat }">
+                                    <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-timezone">Timezone</label>
-                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>
+                                    <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>
                                     <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">
                                         <option v-for="option in timezone" v-bind:value="option.value">
                                             {{ option.text }}
                                         </option>
                                     </select>
+                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-school">School</label>
+                                    <label for="register-form-school">School: </label>
+                                    <input type="text" class="form-control" id="register-form-school" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }">
                                     <p v-if="errors.school" class="text-danger">{{errors.school}}</p>
-                                    <input type="text" class="form-control" id="register-form-school" placeholder="School" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }">
                                 </div>
                                 <div class="form-group" id="register-form-hobby-field">
-                                    <label for="register-form-hobby">Hobby</label>
-                                    <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+                                    <label for="register-form-hobby">What are your hobbies? Please enter at least 2: <span class="form-required">*</span></label>
+                                    <p class="field-caption">Press 'enter' after each hobby to save it</p>
                                     <voerro-tags-input type="text" element-id="register-form-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
+                                    <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
                                 </div>
                             </template>
                             <template v-if="acceptAgreement && user.role === 'teacher'">
                                 <div class="form-group">
-                                    <label for="register-form-purpose">Why do you want to join this program?</label>
-                                    <p v-if="errors.purpose" class="text-danger">{{errors.purpose}}</p>
+                                    <label for="register-form-purpose">Why do you want to join this program? <span class="form-required">*</span></label>
                                     <textarea class="form-control" id="register-form-purpose" v-model="user.purpose" v-bind:class="{ 'border-danger': errors.purpose }"></textarea>
+                                    <p v-if="errors.purpose" class="text-danger">{{errors.purpose}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-skill">What skills do you have that will make you a great volunteer teacher?</label>
-                                    <p v-if="errors.skill" class="text-danger">{{errors.skill}}</p>
+                                    <label for="register-form-skill">What skills do you have that will make you a great volunteer teacher? <span class="form-required">*</span></label>
                                     <textarea type="text" class="form-control" id="register-form-skill" v-model="user.skill" v-bind:class="{ 'border-danger': errors.skill }"></textarea>
+                                    <p v-if="errors.skill" class="text-danger">{{errors.skill}}</p>
                                 </div>
                             </template>
                         </form>
@@ -274,6 +273,7 @@
         </div>
     </div>
 
+    <!--login modal form-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -285,8 +285,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="login-form-username">Username</label>
-                        <input type="text" class="form-control" id="login-form-username" v-model="user.username">
+                        <label for="login-form-email">Email</label>
+                        <input type="text" class="form-control" id="login-form-email" v-model="user.email">
                     </div>
                     <div class="form-group">
                         <label for="login-form-password">Password</label>
