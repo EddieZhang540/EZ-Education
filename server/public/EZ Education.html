@@ -169,19 +169,8 @@
                                     <button type="button" class="btn btn-secondary" v-on:click="role('teacher')">Teacher</button>
                                 </div>
                             </div>
-                            <template v-if="!acceptAgreement && user.role === 'teacher'">
-                                <div class="form-group">
-                                    <h4>Software Licensing and Service Agreements</h4>
-                                    In this special remind users read and fully understand the "software
-                                    license and service agreement" (hereinafter referred to as the "agreement") -
-                                    users should carefully read and fully understand the terms in this agreement, including
-                                    to waive or limit our liability disclaimer and rights restrictions to the user. Please
-                                    read carefully and choose to accept or not accept this agreement (minors should be
-                                    accompanied by legal guardians). Unless you accept all the terms of this agreement,
-                                    you are not entitled to download, install, or use this software and its related services.
-                                </div>
-                            </template>
-                            <template v-if="user.role === 'student' || (acceptAgreement && user.role === 'teacher')">
+
+                            <template v-if="user.role === 'student' || user.role === 'teacher'">
                                 <p> <span class="form-required">*</span> is a required field </p>
                                 <div class="form-group">
                                     <label for="register-form-email">Email: <span class="form-required">*</span></label>
@@ -201,16 +190,16 @@
                                     <p v-if="errors.confirmPassword" class="text-danger">{{errors.confirmPassword}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-form-surname">Surname/Last name: <span class="form-required">*</span></label>
-                                    <p class="field-caption">Please do not use non-English characters. (Eg. Use PinYin instead of Chinese)</p>
-                                    <input type="text" class="form-control" id="register-form-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
-                                    <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
-                                </div>
-                                <div class="form-group">
                                     <label for="register-form-given">Given Name/First name: <span class="form-required">*</span></label>
                                     <p class="field-caption">Please do not use non-English characters. (Eg. Use PinYin instead of Chinese)</p>
                                     <input type="text" class="form-control" id="register-form-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
                                     <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-form-surname">Surname/Last name: <span class="form-required">*</span></label>
+                                    <p class="field-caption">Please do not use non-English characters. (Eg. Use PinYin instead of Chinese)</p>
+                                    <input type="text" class="form-control" id="register-form-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
+                                    <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="register-form-age">Age: <span class="form-required">*</span></label>
@@ -228,15 +217,19 @@
                                     <input type="text" class="form-control" id="register-form-wechat" v-model="user.wechat" v-bind:class="{ 'border-danger': errors.wechat }">
                                     <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
                                 </div>
-                                <div class="form-group">
-                                    <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>
-                                    <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">
-                                        <option v-for="option in timezone" v-bind:value="option.value">
-                                            {{ option.text }}
-                                        </option>
-                                    </select>
-                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>
-                                </div>
+
+<!--                                timezone dropdown-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>-->
+<!--                                    <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">-->
+<!--                                        <option v-for="option in timezone" v-bind:value="option.value">-->
+<!--                                            {{ option.text }}-->
+<!--                                        </option>-->
+<!--                                    </select>-->
+<!--                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>-->
+<!--                                </div>-->
+
+
                                 <div class="form-group">
                                     <label for="register-form-school">School: </label>
                                     <input type="text" class="form-control" id="register-form-school" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }">
@@ -249,7 +242,7 @@
                                     <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
                                 </div>
                             </template>
-                            <template v-if="acceptAgreement && user.role === 'teacher'">
+                            <template v-if="user.role === 'teacher'">
                                 <div class="form-group">
                                     <label for="register-form-purpose">Why do you want to join this program? <span class="form-required">*</span></label>
                                     <textarea class="form-control" id="register-form-purpose" v-model="user.purpose" v-bind:class="{ 'border-danger': errors.purpose }"></textarea>
@@ -266,8 +259,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="cancel">Cancel</button>
-                    <button type="button" class="btn btn-primary" v-if="user.role ==='student' || (acceptAgreement && user.role ==='teacher')" v-on:click="create">Register</button>
-                    <button type="button" class="btn btn-primary" v-if="!acceptAgreement && user.role ==='teacher'" v-on:click="accept">Accept</button>
+                    <button type="button" class="btn btn-primary" v-if="user.role ==='student' || user.role ==='teacher'" v-on:click="create">Register</button>
                 </div>
             </div>
         </div>

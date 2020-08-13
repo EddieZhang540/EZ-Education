@@ -69,7 +69,7 @@ CREATE TABLE `user` (
   `age` tinyint DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `wechat` varchar(64) DEFAULT NULL,
-  `timezone` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `timezone` int,
   `school` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `hobby` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `purpose` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -81,9 +81,9 @@ CREATE TABLE `user` (
 
 insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`address`,`wechat`,`timezone`,`school`,`hobby`,`purpose`,`skill`) values
 
-(2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',NULL,'','','',''),
+(2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',0,'','','',''),
 
-(3,'test2@test.com','123456',1,'2020-03-28 14:04:04','','',0,'','',NULL,'','','','');
+(3,'test2@test.com','123456',1,'2020-03-28 14:04:04','','',0,'','',0,'','','','');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

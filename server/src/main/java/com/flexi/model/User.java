@@ -21,7 +21,7 @@ public class User implements UserDetails {
     private int age;
     private String address;
     private String wechat;
-    private String timezone;
+    private int timezone;
     private String school;
     private String hobby;
     private String purpose;
@@ -76,11 +76,11 @@ public class User implements UserDetails {
         this.wechat = wechat;
     }
 
-    public String getTimezone() {
+    public int getTimezone() {
         return timezone;
     }
 
-    public void setTimezone(String timezone) {
+    public void setTimezone(int timezone) {
         this.timezone = timezone;
     }
 

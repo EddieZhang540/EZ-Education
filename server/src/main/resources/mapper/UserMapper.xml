@@ -11,7 +11,6 @@
         <result column="age" property="age"/>
         <result column="address" property="address"/>
         <result column="wechat" property="wechat"/>
-        <result column="timezone" property="timezone"/>
         <result column="school" property="school"/>
         <result column="hobby" property="hobby"/>
         <result column="purpose" property="purpose"/>
@@ -29,12 +28,12 @@
     </select>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
         INSERT INTO user set email=#{email},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
-        address=#{address},wechat=#{wechat},timezone=#{timezone},school=#{school},
+        address=#{address},wechat=#{wechat},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>
     <update id="update" parameterType="com.flexi.model.User">
         UPDATE user set email=#{email},givenname=#{givenname},surname=#{surname},age=#{age},
-        address=#{address},wechat=#{wechat},timezone=#{timezone},school=#{school},
+        address=#{address},wechat=#{wechat},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
     </update>
     <update id="updateUserWechat">
