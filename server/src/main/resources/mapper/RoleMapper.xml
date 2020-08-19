@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.flexi.dao.RoleDao">
-    <select id="getAllRoles" resultType="com.flexi.model.Role">
+<mapper namespace="com.EZedu.dao.RoleDao">
+    <select id="getAllRoles" resultType="com.EZedu.model.Role">
         SELECT r.* FROM role r
     </select>
     <insert id="addRoles">

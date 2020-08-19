@@ -1,4 +1,4 @@
-package com.flexi.app;
+package com.EZedu.app;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.flexi.*"})
-@MapperScan("com.flexi.dao")
+@ComponentScan(basePackages = {"com.EZedu.*"})
+@MapperScan("com.EZedu.dao")
 public class AppApplication {
 
 	public static void main(String[] args) {

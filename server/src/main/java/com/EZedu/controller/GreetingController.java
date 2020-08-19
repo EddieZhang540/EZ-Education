@@ -1,6 +1,6 @@
-package com.flexi.controller;
+package com.EZedu.controller;
 
-import com.flexi.model.Greeting;
+import com.EZedu.model.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

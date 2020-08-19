@@ -1,6 +1,6 @@
-package com.flexi.dao;
+package com.EZedu.dao;
 
-import com.flexi.model.Role;
+import com.EZedu.model.Role;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

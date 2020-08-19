@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.flexi.dao.UserDao">
-    <resultMap id="UserResultMap" type="com.flexi.model.User">
+<mapper namespace="com.EZedu.dao.UserDao">
+    <resultMap id="UserResultMap" type="com.EZedu.model.User">
         <id column="id" property="id"/>
         <result column="email" property="email"/>
         <result column="givenname" property="givenname"/>
@@ -18,20 +18,20 @@
         <result column="password" property="password"/>
         <result column="enabled" property="enabled"/>
         <result column="create_time" property="createTime"/>
-        <collection property="roles" ofType="com.flexi.model.Role">
+        <collection property="roles" ofType="com.EZedu.model.Role">
             <id column="role_id" property="id"/>
             <result column="role_name" property="name"/>
         </collection>
     </resultMap>
-    <select id="loadUserByEmail" resultType="com.flexi.model.User">
+    <select id="loadUserByEmail" resultType="com.EZedu.model.User">
         SELECT * FROM user WHERE email=#{email}
     </select>
-    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.flexi.model.User">
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.EZedu.model.User">
         INSERT INTO user set email=#{email},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
         address=#{address},wechat=#{wechat},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>
-    <update id="update" parameterType="com.flexi.model.User">
+    <update id="update" parameterType="com.EZedu.model.User">
         UPDATE user set email=#{email},givenname=#{givenname},surname=#{surname},age=#{age},
         address=#{address},wechat=#{wechat},school=#{school},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
@@ -52,14 +52,14 @@
             </otherwise>
         </choose>
     </select>
-    <select id="getAllUsers" resultType="com.flexi.model.User">
+    <select id="getAllUsers" resultType="com.EZedu.model.User">
         SELECT * from user;
     </select>
     <select id="getUserById" resultMap="UserResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`role_id` AND u.`id`=#{id}
     </select>
-    <select id="getAllRoles" resultType="com.flexi.model.Role">
+    <select id="getAllRoles" resultType="com.EZedu.model.Role">
         select * from role;
     </select>
     <update id="updateUserEnabled">

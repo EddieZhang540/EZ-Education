@@ -1,4 +1,4 @@
-package com.flexi.model;
+package com.EZedu.model;
 
 import java.util.List;
 

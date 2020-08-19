@@ -1,10 +1,10 @@
-package com.flexi.service;
+package com.EZedu.service;
 
-import com.flexi.dao.RoleDao;
-import com.flexi.dao.UserDao;
-import com.flexi.model.Response;
-import com.flexi.model.Role;
-import com.flexi.model.User;
+import com.EZedu.dao.RoleDao;
+import com.EZedu.dao.UserDao;
+import com.EZedu.model.Response;
+import com.EZedu.model.Role;
+import com.EZedu.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

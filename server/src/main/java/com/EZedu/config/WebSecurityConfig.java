@@ -1,4 +1,4 @@
-package com.flexi.config;
+package com.EZedu.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

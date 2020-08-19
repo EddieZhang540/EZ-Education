@@ -1,9 +1,9 @@
-package com.flexi.controller;
+package com.EZedu.controller;
 
-import com.flexi.model.Response;
-import com.flexi.model.Role;
-import com.flexi.model.User;
-import com.flexi.service.UserService;
+import com.EZedu.model.Response;
+import com.EZedu.model.Role;
+import com.EZedu.model.User;
+import com.EZedu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

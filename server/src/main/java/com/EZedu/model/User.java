@@ -1,4 +1,4 @@
-package com.flexi.model;
+package com.EZedu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;

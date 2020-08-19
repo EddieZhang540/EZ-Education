@@ -1,4 +1,4 @@
-package com.flexi.model;
+package com.EZedu.model;
 
 public class Greeting {
     private final long id;

@@ -1,4 +1,4 @@
-package com.flexi.app;
+package com.EZedu.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
