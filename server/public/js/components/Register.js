@@ -130,13 +130,13 @@ const Register = {
 
         validatePurpose: function(){
             delete this.errors.purpose;
-            if(!this.user.purpose){
+            if(this.user.role === 'teacher'&& !this.user.purpose){
                 this.errors.purpose='This is a required field.';
             }
         },
         validateSkill: function(){
             delete this.errors.skill;
-            if(!this.user.skill){
+            if(this.user.role === 'teacher'&& !this.user.skill){
                 this.errors.skill='This is a required field.';
             }
         }
