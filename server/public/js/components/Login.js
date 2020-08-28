@@ -8,7 +8,19 @@ const Login = {
     methods: {
         login: function(){
             if(!this.validateForm()) return;
-            alert('TODO: login');
+            axios.post('/login', this.user).then((response)=>{
+                if( response.status === 200 ){
+                    if(response.data.result === 'success'){
+                        this.user = response.data.model;
+                        alert('Login success');
+                    }else if(response.data.result === 'wrong_credentials'){
+                        alert('The email or password is incorrect, please try again.');
+                    }
+                }
+            }).catch(function(error){
+                console.error( error );
+                alert('Login failed. Please try again later.');
+            });
         },
         validateForm: function(){
             this.errors = {};

@@ -29,6 +29,9 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public Response create(@RequestBody User user) { return userService.create(user); }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Response login(@RequestBody User user) {return userService.login(user); }
+
     @RequestMapping(value = "/user", method = RequestMethod.PUT)
     public Response update(@RequestBody User user) { return userService.update(user); }
 

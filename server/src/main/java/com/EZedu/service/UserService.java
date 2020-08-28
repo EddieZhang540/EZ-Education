@@ -60,6 +60,19 @@ public class UserService {
         return response;
     }
 
+    public Response login(User user) {
+        Response response = new Response();
+
+        User loginUser = userDao.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
+        if( loginUser == null ){
+            response.setResult("wrong_credentials");
+        }else{
+            response.setResult("success");
+        }
+        response.setModel(user);
+        return response;
+    }
+
     public User getCurrentUser() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return user;

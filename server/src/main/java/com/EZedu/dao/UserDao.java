@@ -27,6 +27,8 @@ public interface UserDao {
 
     User getUserById(@Param("id") Long id);
 
+    User getUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+
     int update(User user);
 
     List<User> getAllUsers();

@@ -59,6 +59,10 @@
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`role_id` AND u.`id`=#{id}
     </select>
+    <select id="getUserByEmailAndPassword" resultMap="UserResultMap">
+        SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
+        r.`id`=ru.`role_id` AND u.`email`=#{email} AND u.`password`=md5(#{password})
+    </select>
     <select id="getAllRoles" resultType="com.EZedu.model.Role">
         select * from role;
     </select>
