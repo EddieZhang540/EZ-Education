@@ -1,4 +1,4 @@
-const About = {
+const DashboardHome = {
     template: `
         <div>
             <form>

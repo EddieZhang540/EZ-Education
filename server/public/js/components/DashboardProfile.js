@@ -1,4 +1,4 @@
-const About = {
+const DashboardProfile = {
     template: `
         <div>
             <form>
