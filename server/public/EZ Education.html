@@ -41,8 +41,8 @@
 
 <body onload="onLoad()">
     <div id="container">
-        <header>
-            <nav class="navbar fixed-top navbar-expand-lg">
+        <header class="main-header">
+            <nav class="navbar fixed-top navbar-expand-lg shadow">
                 <router-link class="navbar-brand" to="/">
                     <img src="img/logo-small.png" width="80" height="80" alt="EZ Education">
                     <span>EZ Education</span>
@@ -85,7 +85,6 @@
         </header>
 
         <main>
-
             <!-- landing page -->
             <div class="landing">
                 <!-- captions -->
@@ -218,16 +217,16 @@
                                     <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
                                 </div>
 
-<!--                                timezone dropdown-->
-<!--                                <div class="form-group">-->
-<!--                                    <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>-->
-<!--                                    <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">-->
-<!--                                        <option v-for="option in timezone" v-bind:value="option.value">-->
-<!--                                            {{ option.text }}-->
-<!--                                        </option>-->
-<!--                                    </select>-->
-<!--                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>-->
-<!--                                </div>-->
+                                <!--                                timezone dropdown-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>-->
+                                <!--                                    <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">-->
+                                <!--                                        <option v-for="option in timezone" v-bind:value="option.value">-->
+                                <!--                                            {{ option.text }}-->
+                                <!--                                        </option>-->
+                                <!--                                    </select>-->
+                                <!--                                    <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>-->
+                                <!--                                </div>-->
 
 
                                 <div class="form-group">
@@ -292,7 +291,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                    <!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
                     <button type="button" class="btn btn-primary" v-on:click="login">Login</button>
                 </div>
             </div>
