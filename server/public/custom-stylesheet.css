@@ -155,7 +155,7 @@ hr.short
     font-size: 2.5vw;
     font-weight: bold;
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     text-shadow: 0 2px 10px black;
 }
@@ -188,12 +188,12 @@ hr.short
 }
 .form-group label
 {
-    color: var(--darkgray);
     margin-bottom: 0;
 }
 .field-caption
 {
     font-size: 12px;
+    color: var(--darkgray);
 
     margin-bottom: 0;
 }
