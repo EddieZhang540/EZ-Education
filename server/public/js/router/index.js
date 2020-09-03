@@ -11,7 +11,10 @@ const routes = [
             { path: 'user', component: User },
             { path: 'help', component: Help }
         ]
-    }
+    },
+    { path: '/dashboardHome', component: DashboardHome },
+    { path: '/dashboardProfile', component: DashboardProfile },
+    { path: '/dashboardSettings', component: DashboardSettings }
 ];
 
 const router = new VueRouter({
