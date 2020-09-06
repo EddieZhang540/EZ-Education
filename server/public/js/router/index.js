@@ -24,6 +24,11 @@ const router = new VueRouter({
 function onLoad(){
     const app = new Vue({
         router,
+        data: function(){
+            return {
+                logged-in : false
+            };
+        },
         methods : {
             signup : function(){
                 $('#registerModal').modal('show');
@@ -31,11 +36,10 @@ function onLoad(){
             login : function(){
                 $('#loginModal').modal('show');
             }
-      }
+        }
     }).$mount('#container');
 
     new Vue(Register).$mount('#registerModal');
     new Vue(Login).$mount('#loginModal');
-//    new Vue(Dashboard).$mount('#dashboard');
 
 }
