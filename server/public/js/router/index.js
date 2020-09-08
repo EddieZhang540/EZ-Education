@@ -26,7 +26,7 @@ function onLoad(){
         router,
         data: function(){
             return {
-                logged-in : false
+                loggedin : true
             };
         },
         methods : {
@@ -41,5 +41,6 @@ function onLoad(){
 
     new Vue(Register).$mount('#registerModal');
     new Vue(Login).$mount('#loginModal');
+    new Vue(Dashboard).$mount('#dashboard');
 
 }
