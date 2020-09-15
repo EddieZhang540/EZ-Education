@@ -25,6 +25,7 @@
     <script src="js/axios.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
+    <script src="js/vue-session.js"></script>
     <script src="js/voerro-vue-tagsinput.js"></script>
 
     <script src="js/components/Home.js"></script>
@@ -183,6 +184,12 @@
                             </li>
                             <li class="nav-item">
                                 <router-link class="nav-link" to="/dashboardSettings">Settings</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <button  class="btn btn-primary" v-on:click="save">save</button >
+                            </li>
+                            <li class="nav-item">
+                                <button  class="btn btn-primary" v-on:click="test">test</button >
                             </li>
                         </ul>
                     </div>

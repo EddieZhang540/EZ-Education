@@ -1,4 +1,3 @@
-import VueSession from 'vue-session'
 var options = {
     persist: true
 }
@@ -45,7 +44,10 @@ function onLoad(){
                 $('#loginModal').modal('show');
             },
             save: function(){
-
+                this.$session.set('test',{test:'aaa'});
+            },
+            test: function(){
+                alert(this.$session.get('test').test);
             },
             validateForm: function(){
                 this.errors = {};
@@ -81,6 +83,6 @@ function onLoad(){
 
     new Vue(Register).$mount('#registerModal');
     new Vue(Login).$mount('#loginModal');
-    new Vue(Dashboard).$mount('#dashboard');
+   // new Vue(Dashboard).$mount('#dashboard');
 
 }
