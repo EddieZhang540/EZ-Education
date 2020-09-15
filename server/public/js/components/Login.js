@@ -12,7 +12,10 @@ const Login = {
                 if( response.status === 200 ){
                     if(response.data.result === 'success'){
                         this.user = response.data.model;
+                        this.$session.start()
+                        this.$session.set('user', response.data.model)
                         alert('Login success');
+                        this.$router.push('/panel/search')
                     }else if(response.data.result === 'wrong_credentials'){
                         alert('The email or password is incorrect, please try again.');
                     }

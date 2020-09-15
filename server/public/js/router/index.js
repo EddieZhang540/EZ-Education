@@ -1,3 +1,9 @@
+import VueSession from 'vue-session'
+var options = {
+    persist: true
+}
+Vue.use(VueSession, options)
+
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
