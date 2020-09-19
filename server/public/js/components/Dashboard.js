@@ -1,42 +1,43 @@
 const Dashboard = {
-    data: function(){
-        return {
-            user : {},
-            errors : {}
-        };
-    },
-    methods: {
-        save: function(){
+    template: `
+        <div id="dashboard">
+            <header class="dashboard-header">
+                <nav class="navbar fixed-top navbar-expand-md">
+                    <div class="navbar-brand">
+                        <img src="img/logo-small.png" width="80" height="80" alt="EZ Education">
+                        <span>EZ Education</span>
+                    </div>
 
-        },
-        validateForm: function(){
-            this.errors = {};
-            this.validateEmail();
-            this.validatePassword();
-            for( let key in this.errors){
-                return false;
-            }
-            return true;
-        },
-        validateEmail: function(){
-            delete this.errors.email;
-            if(!this.user.email){
-                this.errors.email='Please enter the email';
-            }
-        },
-        validatePassword: function(){
-            delete this.errors.password;
-            if(!this.user.password){
-                this.errors.password='Please enter the password';
-            }
-        }
-    },
-    watch : {
-        "user.email" : function(){
-            this.validateEmail();
-        },
-        "user.password" : function(){
-            this.validatePassword();
-        }
-    }
-}
+                    <span class="navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </span>
+                </nav>
+            </header>
+
+            <main class="dashboard-main row">
+                <nav class="col-md-3 sidebar navbar-expand-md">
+                    <div class="collapse navbar-collapse" id="navbarCollapsible">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <router-link class="nav-link" to="/dashboardHome">Home</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to="/dashboardProfile">Profile</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to="/dashboardSettings">Settings</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col-md-12 content">
+                    <div class="container">
+                        <router-view></router-view>
+                    </div>
+                </div>
+            </main>
+        </div>
+    `,
+};

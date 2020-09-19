@@ -1,58 +1,65 @@
 const Login = {
-    data: function(){
+    data: function () {
         return {
-            user : {},
-            errors : {}
+            user: {},
+            errors: {},
         };
     },
     methods: {
-        login: function(){
-            if(!this.validateForm()) return;
-            axios.post('/login', this.user).then((response)=>{
-                if( response.status === 200 ){
-                    if(response.data.result === 'success'){
-                        this.user = response.data.model;
-                        this.$session.start()
-                        this.$session.set('user', response.data.model)
-                        alert('Login success');
-                        this.$router.push('/panel/search')
-                    }else if(response.data.result === 'wrong_credentials'){
-                        alert('The email or password is incorrect, please try again.');
+        login: function () {
+            if (!this.validateForm()) return;
+            axios
+                .post("/login", this.user)
+                .then((response) => {
+                    if (response.status === 200) {
+                        if (response.data.result === "success") {
+                            this.user = response.data.model;
+                            this.$session.start();
+                            this.$session.set("user", response.data.model);
+                            $("#loginModal").modal("hide");
+                            router.push({ path: "/dashboardProfile" });
+                        } else if (
+                            response.data.result === "wrong_credentials"
+                        ) {
+                            alert(
+                                "The email or password is incorrect, please try again."
+                            );
+                        }
                     }
-                }
-            }).catch(function(error){
-                console.error( error );
-                alert('Login failed. Please try again later.');
-            });
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    alert("Login failed. Please try again later.");
+                });
         },
-        validateForm: function(){
+        validateForm: function () {
             this.errors = {};
             this.validateEmail();
             this.validatePassword();
-            for( let key in this.errors){
+            for (let key in this.errors) {
                 return false;
             }
             return true;
         },
-        validateEmail: function(){
+        validateEmail: function () {
             delete this.errors.email;
-            if(!this.user.email){
-                this.errors.email='Please enter the email';
+            if (!this.user.email) {
+                this.errors.email = "Please enter the email";
             }
         },
-        validatePassword: function(){
+        validatePassword: function () {
             delete this.errors.password;
-            if(!this.user.password){
-                this.errors.password='Please enter the password';
+            if (!this.user.password) {
+                this.errors.password = "Please enter the password";
             }
-        }
+        },
     },
-    watch : {
-        "user.email" : function(){
+    watch: {
+        "user.email": function () {
             this.validateEmail();
         },
-        "user.password" : function(){
+        "user.password": function () {
             this.validatePassword();
-        }
-    }
-}
+        },
+    },
+};
