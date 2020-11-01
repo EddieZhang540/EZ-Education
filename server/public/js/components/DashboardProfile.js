@@ -69,7 +69,7 @@ const DashboardProfile = {
         return {
             user: this.$session.get("user"),
             errors: {},
-            hobbies: [],
+            hobbies: this.$session.get("user").hobby,
         };
     },
     methods: {
@@ -130,6 +130,18 @@ const DashboardProfile = {
         },
         "user.password": function () {
             this.validatePassword();
+        },
+        "user.surname": function () {
+            this.validateSurname();
+        },
+        "user.givenname": function () {
+            this.validateGivenname();
+        },
+        "user.age": function () {
+            this.validateAge();
+        },
+        hobbies: function () {
+            this.validateHobbies();
         },
     },
 };
