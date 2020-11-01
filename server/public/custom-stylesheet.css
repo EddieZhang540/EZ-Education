@@ -1,14 +1,14 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
 
-:root
-{
+:root {
     --purple: #8415ab;
     --darkpurple: #5c0e78;
     --yellow: #e4d618;
     --lightgray: #e4e4e4;
-    --darkgray: #4f4f4f;
+    --darkgray: #5c5c5c;
+    --black: #000;
     /* built in colors */
     --blue: #007bff;
     --indigo: #6610f2;
@@ -19,101 +19,84 @@
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
-    --gray: #6c757d;
+    --gray: #a1a1a1;
 }
 
-body
-{
-    font-family: 'Montserrat', serif;
+body {
+    font-family: "Montserrat", serif;
 
     overflow-x: hidden;
 }
 
-
-
 /* main header */
-.main-header nav
-{
-    background-color: rgba(255, 255, 255, .95);
+.main-header nav {
+    background-color: rgba(255, 255, 255, 0.95);
 }
-.main-header .navbar-brand
-{
+.main-header .navbar-brand {
     background-color: var(--yellow);
 }
 .main-header .navbar-collapse.collapsing .nav-item a,
-.main-header .navbar-collapse.show .nav-item a
-{
+.main-header .navbar-collapse.show .nav-item a {
     margin-top: 5px;
 }
-.main-header .nav-item a
-{
+.main-header .nav-item a {
     font-size: 17px;
 
     margin-top: 40px;
     margin-right: 15px;
 
-    transition: color .15s;
+    transition: color 0.15s;
 
     color: var(--black);
 }
 .main-header .nav-item .router-link-exact-active,
-.main-header .nav-item a:hover
-{
+.main-header .nav-item a:hover {
     color: var(--yellow);
 }
 
-
 /* buttons */
-.btn-outline-primary
-{
+.btn-outline-primary {
     color: var(--black);
     border-color: var(--purple);
 }
-.btn-outline-primary:hover
-{
+.btn-outline-primary:hover {
     color: var(--yellow);
     border-color: var(--purple);
     background-color: var(--purple);
 }
 .btn-outline-primary:focus,
 .btn-outline-primary:not(:disabled):not(.disabled):active,
-.show > .btn-outline-primary.dropdown-toggle
-{
+.show > .btn-outline-primary.dropdown-toggle {
     color: var(--yellow);
     border-color: var(--darkpurple);
     background-color: var(--darkpurple);
 }
-.btn-primary
-{
+.btn-primary {
     color: var(--white);
     border-color: var(--purple);
     background-color: var(--purple);
 }
-.btn-primary:hover
-{
+.btn-primary:hover {
     color: var(--yellow) !important;
     border-color: var(--darkpurple);
     background-color: var(--darkpurple);
 }
 .btn-primary:focus,
 .btn-primary:not(:disabled):not(.disabled):active,
-.show > .btn-primary.dropdown-toggle
-{
+.show > .btn-primary.dropdown-toggle {
     color: var(--yellow) !important;
     border-color: #460a5c;
     background-color: #460a5c;
 }
 
 /* general styling */
-.row h1
-{
+.row h1 {
     font-size: 50px;
     font-weight: bolder;
 
     letter-spacing: 3px;
 }
-hr.short
-{
+hr.short {
     width: 100px;
     height: 10px;
     margin-bottom: 40px;
@@ -121,26 +104,22 @@ hr.short
     background-color: var(--purple);
 }
 
-
 /* home page */
-#landing
-{
+#landing {
     width: 100%;
     height: 900px;
 
     background: url(img/main-bg.jpg) no-repeat center center fixed;
     background-size: cover;
 }
-.caption
-{
+.caption {
     width: 100%;
     max-width: 100%;
     padding-top: 40vh;
 
     color: white;
 }
-.caption h1
-{
+.caption h1 {
     font-size: 4.5vw;
     font-weight: bolder;
 
@@ -150,8 +129,7 @@ hr.short
 
     text-shadow: 0 2px 10px black;
 }
-.caption h3
-{
+.caption h3 {
     font-size: 2.5vw;
     font-weight: bold;
 
@@ -160,46 +138,37 @@ hr.short
     text-shadow: 0 2px 10px black;
 }
 /* mobile view */
-@media (max-width: 992px)
-{
-    .caption h1
-    {
+@media (max-width: 992px) {
+    .caption h1 {
         font-size: 10vw;
     }
-    .caption h3
-    {
+    .caption h3 {
         font-size: 6vw;
     }
 }
 
 /* about page */
-#about
-{
+#about {
     height: 100vh;
 
     justify-content: center;
 }
 
 /* register form */
-.form-required
-{
+.form-required {
     color: var(--red);
 }
-.form-group label
-{
-    margin-bottom: 0;
+.form-group label {
+    margin-bottom: 10;
 }
-.field-caption
-{
+.field-caption {
     font-size: 12px;
     color: var(--darkgray);
 
     margin-bottom: 0;
 }
 
-
-footer
-{
+footer {
     /* fix for the white space after the main body*/
     margin-top: -24px;
 
@@ -217,42 +186,38 @@ footer
     }
 } */
 
-
-
 /* dashboard */
 /* header */
-.dashboard-header .navbar
-{
+.dashboard-header .navbar {
     background-color: #fff;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(0, 0, 0, .16);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.16);
 }
 
 /* main */
-.dashboard-main
-{
+.dashboard-main {
     padding-top: 106px;
 }
-.dashboard-main .sidebar .nav-item
-{
+.dashboard-main .sidebar .nav-item {
     padding-bottom: 10px;
     padding-left: 20px;
 }
-.dashboard-main .sidebar .nav-item a
-{
-    transition: color .15s;
+.dashboard-main .sidebar .nav-item a {
+    padding-left: 40px;
+    transition: color 0.15s;
 
-    color: var(--gray);
-}
-.dashboard-header .sidebar .nav-item .router-link-exact-active,
-.dashboard-header .sidebar .nav-item a:hover
-{
     color: var(--darkgray);
 }
+.dashboard-main .sidebar .nav-item a:hover {
+    color: #3b3b3b;
+}
+.dashboard-main .sidebar .nav-item .router-link-exact-active,
+.dashboard-main .sidebar .nav-item a:active {
+    color: #3b3b3b;
+    font-weight: bold;
+}
 
-@media (min-width: 768px)
-{
-    .dashboard-main .sidebar
-    {
+@media (min-width: 768px) {
+    .dashboard-main .sidebar {
         position: fixed;
         z-index: 1;
 
@@ -260,24 +225,20 @@ footer
         padding-top: 20px;
 
         background-color: #f4f4f4;
-        box-shadow: .15rem 0 1.75rem 0 rgba(0, 0, 0, .16);
+        box-shadow: 0.15rem 0 1.75rem 0 rgba(0, 0, 0, 0.16);
     }
-    .dashboard-main .content
-    {
+    .dashboard-main .content {
         width: 74.5vw;
         padding-top: 20px;
         padding-left: 25.5vw;
     }
 }
-@media (max-width: 767px)
-{
-    .dashboard-main .sidebar
-    {
+@media (max-width: 767px) {
+    .dashboard-main .sidebar {
         border-bottom: 2px solid var(--lightgray);
         background-color: #f4f4f4;
     }
-    .dashboard-main .content
-    {
+    .dashboard-main .content {
         padding-top: 20px;
     }
 }

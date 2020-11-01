@@ -67,9 +67,9 @@ const DashboardProfile = {
     `,
     data: function () {
         return {
-            user: {},
+            user: this.$session.get("user"),
             errors: {},
-            hobbies: [],
+            hobbies: this.$session.get("user").hobby,
         };
     },
     methods: {
@@ -77,6 +77,10 @@ const DashboardProfile = {
             this.errors = {};
             this.validateEmail();
             this.validatePassword();
+            this.validateSurname();
+            this.validateGivenname();
+            this.validateAge();
+            this.validateHobbies();
             for (let key in this.errors) {
                 return false;
             }
@@ -94,6 +98,30 @@ const DashboardProfile = {
                 this.errors.password = "Please enter the password";
             }
         },
+        validateSurname: function () {
+            delete this.errors.surname;
+            if (!this.user.surname) {
+                this.errors.surname = "This is a required field";
+            }
+        },
+        validateGivenname: function () {
+            delete this.errors.givenname;
+            if (!this.user.givenname) {
+                this.errors.givenname = "This is a required field";
+            }
+        },
+        validateAge: function () {
+            delete this.errors.age;
+            if (!this.user.age) {
+                this.errors.age = "This is a required field";
+            }
+        },
+        validateHobbies: function () {
+            delete this.errors.hobbies;
+            if (this.hobbies.length < 2) {
+                this.errors.hobbies = "Please enter at least 2 hobbies.";
+            }
+        },
     },
     components: { VoerroTagsInput },
     watch: {
@@ -102,6 +130,18 @@ const DashboardProfile = {
         },
         "user.password": function () {
             this.validatePassword();
+        },
+        "user.surname": function () {
+            this.validateSurname();
+        },
+        "user.givenname": function () {
+            this.validateGivenname();
+        },
+        "user.age": function () {
+            this.validateAge();
+        },
+        hobbies: function () {
+            this.validateHobbies();
         },
     },
 };
