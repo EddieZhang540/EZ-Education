@@ -1,36 +1,40 @@
 var options = {
-    persist: true
-}
-Vue.use(VueSession, options)
+    persist: true,
+};
+Vue.use(VueSession, options);
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/admin', component: Admin,
+    { path: "/", component: Home },
+    {
+        path: "/admin",
+        component: Admin,
         children: [
-            { path: '', component: User },
-            { path: 'user', component: User },
-            { path: 'help', component: Help }
-        ]
+            { path: "", component: User },
+            { path: "user", component: User },
+            { path: "help", component: Help },
+        ],
     },
-    { path: '/dashboard', component: Dashboard,
+    {
+        path: "/dashboard",
+        component: Dashboard,
+        redirect: "/dashboardHome",
         children: [
-            { path: '/dashboardHome', component: DashboardHome },
-            { path: '/dashboardProfile', component: DashboardProfile },
-            { path: '/dashboardSettings', component: DashboardSettings }
-        ]
-    }
+            { path: "/dashboardHome", component: DashboardHome },
+            { path: "/dashboardProfile", component: DashboardProfile },
+            { path: "/dashboardSettings", component: DashboardSettings },
+        ],
+    },
 ];
 
 const router = new VueRouter({
-    routes
+    routes,
 });
 
-function onLoad(){
+function onLoad() {
     const app = new Vue({
-        router
-    }).$mount('#container');
+        router,
+    }).$mount("#container");
 
-    new Vue(Register).$mount('#registerModal');
-    new Vue(Login).$mount('#loginModal');
-
+    new Vue(Register).$mount("#registerModal");
+    new Vue(Login).$mount("#loginModal");
 }

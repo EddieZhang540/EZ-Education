@@ -13,17 +13,12 @@ const Login = {
                 .then((response) => {
                     if (response.status === 200) {
                         if (response.data.result === "success") {
-                            this.user = response.data.model;
                             this.$session.start();
                             this.$session.set("user", response.data.model);
                             $("#loginModal").modal("hide");
-                            router.push({ path: "/dashboardProfile" });
-                        } else if (
-                            response.data.result === "wrong_credentials"
-                        ) {
-                            alert(
-                                "The email or password is incorrect, please try again."
-                            );
+                            router.push({ path: "/dashboard" });
+                        } else if (response.data.result === "wrong_credentials") {
+                            alert("The email or password is incorrect, please try again.");
                         }
                     }
                 })

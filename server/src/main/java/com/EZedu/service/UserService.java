@@ -69,7 +69,7 @@ public class UserService {
         }else{
             response.setResult("success");
         }
-        response.setModel(user);
+        response.setModel(loginUser);
         return response;
     }
 
