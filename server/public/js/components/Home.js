@@ -18,19 +18,21 @@ const Home = {
                     <div class="collapse navbar-collapse" id="navbarCollapsible">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#landing">Home</a>
+                                <a class="nav-link" href="#home" v-smooth-scroll="{ duration: 600 }">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about">About</a>
+                                <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 600, offset: -105 }">About</a>
                             </li>
+                            <!--
                             <li class="nav-item">
                                 <router-link class="nav-link" to="//admin">Admin</router-link>
                             </li>
+                            -->
                             <li class="nav-item">
-                                <a class="nav-link" href="#team">The Team</a>
+                                <a class="nav-link" href="#team" v-smooth-scroll="{ duration: 600, offset: -105 }">The Team</a>
                             </li>
                             <li class="nav-item mr-5">
-                                <a class="nav-link" href="#contact">Contact Us</a>
+                                <a class="nav-link" href="#contact" v-smooth-scroll="{ duration: 600, offset: -105 }">Contact Us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
@@ -44,13 +46,13 @@ const Home = {
             </header>
 
             <main>
-                <!-- landing page -->
-                <div id="landing">
+                <!-- home page -->
+                <div id="home">
                     <!-- captions -->
                     <div class="caption text-center">
                         <h1>WELCOME TO EZ EDUCATION</h1>
                         <h3>YOUR PERSONAL JOURNEY STARTS HERE</h3>
-                        <a href="#">
+                        <a href="#about" v-smooth-scroll="{ duration: 600, offset: -105 }">
                             <img src="img/down-arrow.png" width="75" height="80" alt="">
                         </a>
                     </div>
@@ -79,9 +81,6 @@ const Home = {
                 <div id="contact" class="row">
 
                 </div>
-
-                <!-- Removes the top margins -->
-                <div>&nbsp;</div>
             </main>
 
             <footer>

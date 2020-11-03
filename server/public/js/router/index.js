@@ -2,9 +2,13 @@ var options = {
     persist: true,
 };
 Vue.use(VueSession, options);
+Vue.use(VueSmoothScroll);
 
 const routes = [
-    { path: "/", component: Home },
+    {
+        path: "/",
+        component: Home,
+    },
     {
         path: "/admin",
         component: Admin,
