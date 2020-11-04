@@ -34,7 +34,7 @@ const Home = {
                             <li class="nav-item mr-5">
                                 <a class="nav-link" href="#contact" v-smooth-scroll="{ duration: 600, offset: -105 }">Contact Us</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mr-3">
                                 <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
                             </li>
                             <li class="nav-item">

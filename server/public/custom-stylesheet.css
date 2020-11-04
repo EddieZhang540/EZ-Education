@@ -5,7 +5,7 @@
 :root {
     --purple: #8415ab;
     --darkpurple: #5c0e78;
-    --yellow: #c7ba03;
+    --yellow: #e9dc25;
     --lightgray: #e4e4e4;
     --darkgray: #5c5c5c;
     --black: #000;
@@ -23,6 +23,7 @@
 }
 
 body {
+    font-size: 17px;
     font-family: "Montserrat", serif;
 
     overflow-x: hidden;
@@ -40,9 +41,9 @@ body {
     margin-top: 5px;
 }
 .main-header .nav-item a {
-    font-size: 17px;
+    font-size: 20px;
 
-    margin-top: 40px;
+    margin-top: 0px;
     margin-right: 15px;
 
     transition: color 0.15s;
@@ -140,10 +141,10 @@ hr.short {
 /* mobile view */
 @media (max-width: 992px) {
     .caption h1 {
-        font-size: 10vw;
+        font-size: 9vw;
     }
     .caption h3 {
-        font-size: 6vw;
+        font-size: 5.7vw;
     }
 }
 
