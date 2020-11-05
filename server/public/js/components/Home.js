@@ -61,19 +61,34 @@ const Home = {
                 <!-- about -->
                 <div id="about" class="row pt-5">
                     <div class="col-9 text-center">
-                        <h1>ABOUT</h1>
+                        <h1>ABOUT US</h1>
                         <hr class="short">
-                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your
-                            page. I’m a great place for you to tell a story and let your users know a little more about you.​This is a great space to write long text about your company and your services. You can use this space to go into a little more
-                            detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your
-                            company stand out and show your visitors who you are.</p>
+                        <p> Our mission here at EZ Education is to break down lingual and cultural barriers between <i>anyone</i>, from <i>anywhere</i>.
+                        We completely understand what it's like to be a complete stranger in a new country, having experienced the exact same thing ourselves, which is why we strive to ease the transition for as many students as possible. We do that by building a motivated and diverse team and making sure that everyone, both students and teachers, feel not just comfortable, but passionate about global communication, interaction and support.</p>
                     </div>
                 </div>
 
                 <!-- the team -->
                 <div id="team" class="row">
                     <div class="col-9 text-center">
-                        <h1>HI</h1>
+                        <h1>THE TEAM</h1>
+                        <hr class="short">
+
+                        <div class="team-member1">
+                            <img src="img/member1" alt="team-member1">
+                            <p>Eddie Zhang1</p>
+                        </div>
+
+                        <div class="team-member2">
+                            <img src="img/member2" alt="team-member2">
+                            <p>Eddie Zhang2</p>
+                        </div>
+
+                        <div class="team-member3">
+                            <img src="img/member3" alt="team-member3">
+                            <p>Eddie Zhang3</p>
+                        </div>
+
                     </div>
                 </div>
 

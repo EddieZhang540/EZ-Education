@@ -94,13 +94,12 @@ body {
 .row h1 {
     font-size: 50px;
     font-weight: bolder;
-
     letter-spacing: 3px;
 }
 hr.short {
     width: 100px;
     height: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 
     background-color: var(--purple);
 }
@@ -153,6 +152,11 @@ hr.short {
     height: 100vh;
 
     justify-content: center;
+}
+
+.col-9 {
+    font-size: 1.5vw;
+    max-width: 70%
 }
 
 /* register form */
