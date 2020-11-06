@@ -100,6 +100,7 @@ hr.short {
     width: 100px;
     height: 10px;
     margin-bottom: 35px;
+    margin-left: 0px;
 
     background-color: var(--purple);
 }
@@ -156,9 +157,8 @@ hr.short {
     /* justify-content: center; */
 }
 
-.col-9 {
-    font-size: 1.5vw;
-    max-width: 70%
+.offer h2 {
+    justify-content: center;
 }
 
 /* register form */

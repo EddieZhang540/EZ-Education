@@ -60,8 +60,10 @@ const Home = {
 
                 <!-- about -->
                 <div id="about" class="row">
-                    <div class="col-1"></div>
+                    <div class="col-1">
+                    </div>
                     <div class="col-4">
+                        <img src="img/logo.png" width="400" height="400" alt="">   
                     </div>
                     <div class="col-6">
                         <h1>ABOUT</h1>
@@ -71,7 +73,18 @@ const Home = {
                         At EZ Education, we aim to to offer a more relaxed and flexible learning environment than a traditional classroom. The teachers and students are free to decide which subjects to cover and how the lessons will be delivered. Through
                         one-on-one lessons and discussions, EZ Education promotes a broader understanding of the English language and facilitates strong and meaningful relationships between students and teachers.
                         </p>
+                        <p>
+                        Our purpose at EZ Education is to break down lingual and cultural barriers between anyone, from anywhere. 
+                        
+                        Both Chinese and English are prominent and popular languages in Canada, but a lot of people are fluent in only one of the two. This sometimes results in a gap between different groups. For example, the immigrant students that come to Canada are generally not as good at spoken English, and this isolates them from other students. The same thing is true the other way around. The aim of this organization is to help close that cultural gap by offering free classes to those who need them.
+                        We completely understand what it's like to be a complete stranger in a new country, having experienced the exact same thing ourselves, which is why we strive to ease the transition for as many students as possible. We do that by building a motivated and diverse team and making sure that everyone, both students and teachers, feel not just comfortable, but passionate about global communication, interaction and support.
+                        </p>                        
                     </div>
+
+                    <div class="offer">
+                        <h2>WHAT WE OFFER</h2>
+                    </div>
+
                 </div>
 
                 <!-- the team -->
