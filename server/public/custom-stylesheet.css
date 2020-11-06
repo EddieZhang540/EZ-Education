@@ -107,7 +107,7 @@ hr.short {
 /* home page */
 #home {
     width: 100%;
-    height: 900px;
+    height: 110vh;
 
     background: url(img/main-bg.jpg) no-repeat center center fixed;
     background-size: cover;
