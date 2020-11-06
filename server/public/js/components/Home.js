@@ -21,7 +21,7 @@ const Home = {
                                 <a class="nav-link" href="#home" v-smooth-scroll="{ duration: 600 }">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 600, offset: -105 }">About</a>
+                                <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 600, offset: -180 }">About</a>
                             </li>
                             <!--
                             <li class="nav-item">
@@ -34,7 +34,7 @@ const Home = {
                             <li class="nav-item mr-5">
                                 <a class="nav-link" href="#contact" v-smooth-scroll="{ duration: 600, offset: -105 }">Contact Us</a>
                             </li>
-                            <li class="nav-item mr-3">
+                            <li class="nav-item">
                                 <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
                             </li>
                             <li class="nav-item">
@@ -52,19 +52,25 @@ const Home = {
                     <div class="caption text-center">
                         <h1>WELCOME TO EZ EDUCATION</h1>
                         <h3>YOUR PERSONAL JOURNEY STARTS HERE</h3>
-                        <a href="#about" v-smooth-scroll="{ duration: 600, offset: -105 }">
+                        <a href="#about" v-smooth-scroll="{ duration: 600, offset: -180 }">
                             <img src="img/down-arrow.png" width="75" height="80" alt="">
                         </a>
                     </div>
                 </div>
 
                 <!-- about -->
-                <div id="about" class="row pt-5">
-                    <div class="col-9 text-center">
-                        <h1>ABOUT US</h1>
+                <div id="about" class="row">
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                    </div>
+                    <div class="col-6">
+                        <h1>ABOUT</h1>
                         <hr class="short">
-                        <p> Our mission here at EZ Education is to break down lingual and cultural barriers between <i>anyone</i>, from <i>anywhere</i>.
-                        We completely understand what it's like to be a complete stranger in a new country, having experienced the exact same thing ourselves, which is why we strive to ease the transition for as many students as possible. We do that by building a motivated and diverse team and making sure that everyone, both students and teachers, feel not just comfortable, but passionate about global communication, interaction and support.</p>
+                        <p>
+                        EZ Education is a not-for-profit organization based in the Greater Toronto Area. Our mission is to provide a platform that connects people learning English as a foreign language with volunteer teachers who are fluent in English. 
+                        At EZ Education, we aim to to offer a more relaxed and flexible learning environment than a traditional classroom. The teachers and students are free to decide which subjects to cover and how the lessons will be delivered. Through
+                        one-on-one lessons and discussions, EZ Education promotes a broader understanding of the English language and facilitates strong and meaningful relationships between students and teachers.
+                        </p>
                     </div>
                 </div>
 
