@@ -97,9 +97,15 @@ body {
 
     letter-spacing: 3px;
 }
+.row h2 {
+    font-size: 40px;
+
+    letter-spacing: 2px;
+}
 hr.short {
-    width: 100px;
+    width: 120px;
     height: 10px;
+    margin-right: 50vw;
     margin-bottom: 40px;
 
     background-color: var(--purple);
@@ -108,7 +114,7 @@ hr.short {
 /* home page */
 #home {
     width: 100%;
-    height: 125vh;
+    height: 120vh;
 
     background: url(img/main-bg.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -154,7 +160,25 @@ hr.short {
     height: 100vh;
     /* background: var(--yellow) */
     /* margin-left: 50vw; */
-    /* justify-content: center; */
+}
+
+#for-student {
+    padding-top: 50px;
+    height: 100vh;
+    justify-content: center;
+    background-color: #F5F8FD;
+}
+#for-student h2 {
+    margin-bottom: 50px;
+}
+#for-student .card {
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#team {
+    justify-content: center;
 }
 
 /* register form */
