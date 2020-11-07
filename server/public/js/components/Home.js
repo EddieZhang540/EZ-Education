@@ -113,10 +113,11 @@ const Home = {
 
                 <!-- Impact -->
                 <div id="impact" class="row">
-                    <div class="col text-center">
-                        <h1>Impact<h1>
+                    <div class="statblock col-5 text-center">
+                        <h1>Impact</h1>
                         <hr class="short-stat" >
-                        <p>300 hours</p>
+                        <p>Our instructors have contributed over 400 hours</p>
+                        
                     </div>
                 </div>
 

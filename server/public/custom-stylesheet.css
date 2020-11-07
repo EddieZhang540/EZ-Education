@@ -253,3 +253,9 @@ hr.short-stat {
 
     background-color: var(--purple);
 }
+
+.statblock {
+   height: 20vh;
+   padding-top: 5px; 
+    background-color: var(--yellow);
+}
