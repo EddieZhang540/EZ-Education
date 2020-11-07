@@ -74,32 +74,36 @@ const Home = {
                     </div>
                 </div>
 
+                <!-- What we offer for students -->
                 <div id="for-student" class="row">
-                    <div class="col text-center">
+                    <div class="col-8 text-center">
                         <div class="row">
                             <h2 class="col">What we offer</h2>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="card">
-                                    <img class="card-img-top" src="img/logo.png" height="200">
                                     <div class="card-body">
+                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <h4>A</h4>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
-                                    <img class="card-img-top" src="img/logo.png" height="80">
                                     <div class="card-body">
+                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <h4>B</h4>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
-                                    <img class="card-img-top" src="img/logo.png" height="80">
                                     <div class="card-body">
+                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <h4>C</h4>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                 </div>
