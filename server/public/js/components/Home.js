@@ -111,6 +111,16 @@ const Home = {
                     </div>
                 </div>
 
+                <!-- Impact -->
+                <div id="impact" class="row">
+                    <div class="col text-center">
+                        <h1>Impact<h1>
+                        <hr class="short-stat" >
+                        <p>300 hours</p>
+                    </div>
+                </div>
+
+
                 <!-- contact -->
                 <div id="contact" class="row">
 

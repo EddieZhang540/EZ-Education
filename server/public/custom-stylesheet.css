@@ -245,3 +245,11 @@ footer {
         padding-top: 20px;
     }
 }
+
+hr.short-stat {
+    width: 100px;
+    height: 10px;
+    justify-content: center;
+
+    background-color: var(--purple);
+}
