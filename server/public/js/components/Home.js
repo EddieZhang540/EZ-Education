@@ -74,7 +74,14 @@ const Home = {
                     </div>
                 </div>
 
-                <!-- What we offer for students -->
+                <div id="our-mission" class="row">
+                    <div class="col-7 text-center">
+                        <h1>Our Mission</h1>
+
+                        <p>Our mission is to break down lingual and cultural barriers between anyone, from anywhere. We completely understand what it's like to be a complete stranger in a new country, having experienced the exact same thing ourselves, which is why we work to ease the transition for as many newcomers as possible. We do that by building a motivated and diverse team and making sure that everyone, both students and teachers, feel not just comfortable, but passionate about global communication, interaction and support.</p>
+                    </div>
+                </div>
+
                 <div id="for-student" class="row">
                     <div class="col-8 text-center">
                         <div class="row">
