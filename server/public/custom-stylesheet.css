@@ -23,7 +23,7 @@
 }
 
 body {
-    font-size: 17px;
+    font-size: 19px;
     font-family: "Montserrat", serif;
 
     overflow-x: hidden;
@@ -41,7 +41,7 @@ body {
     margin-top: 5px;
 }
 .main-header .nav-item a {
-    font-size: 18px;
+    font-size: 19px;
 
     margin-top: 40px;
     margin-right: 30px;
