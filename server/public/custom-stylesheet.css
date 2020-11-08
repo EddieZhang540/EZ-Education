@@ -35,7 +35,7 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
 }
 .main-header .navbar-brand {
-    background-color: var(--yellow);
+    /* background-color: var(--yellow); */
 }
 .main-header .navbar-collapse.collapsing .nav-item a,
 .main-header .navbar-collapse.show .nav-item a {

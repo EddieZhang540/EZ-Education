@@ -29,7 +29,7 @@ const Home = {
                             </li>
                             -->
                             <li class="nav-item">
-                                <a class="nav-link" href="#mission" v-smooth-scroll="{ duration: 1000, offset: -105 }">Mission</a>
+                                <a class="nav-link" href="#mission" v-smooth-scroll="{ duration: 1000, offset: -105 }">Our Mission</a>
                             </li>
                             <li class="nav-item mr-5">
                                 <a class="nav-link" href="#for-student" v-smooth-scroll="{ duration: 1000, offset: -105 }">What we offer</a>
