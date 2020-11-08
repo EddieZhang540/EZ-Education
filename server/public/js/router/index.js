@@ -9,15 +9,15 @@ const routes = [
         path: "/",
         component: Home,
     },
-    {
-        path: "/admin",
-        component: Admin,
-        children: [
-            { path: "", component: User },
-            { path: "user", component: User },
-            { path: "help", component: Help },
-        ],
-    },
+    // {
+    //     path: "/admin",
+    //     component: Admin,
+    //     children: [
+    //         { path: "", component: User },
+    //         { path: "user", component: User },
+    //         { path: "help", component: Help },
+    //     ],
+    // },
     {
         path: "/dashboard",
         component: Dashboard,
