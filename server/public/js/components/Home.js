@@ -29,10 +29,10 @@ const Home = {
                             </li>
                             -->
                             <li class="nav-item">
-                                <a class="nav-link" href="#team" v-smooth-scroll="{ duration: 1000, offset: -105 }">The Team</a>
+                                <a class="nav-link" href="#mission" v-smooth-scroll="{ duration: 1000, offset: -105 }">Mission</a>
                             </li>
                             <li class="nav-item mr-5">
-                                <a class="nav-link" href="#contact" v-smooth-scroll="{ duration: 1000, offset: -105 }">Contact Us</a>
+                                <a class="nav-link" href="#for-student" v-smooth-scroll="{ duration: 1000, offset: -105 }">What we offer</a>
                             </li>
                             <li class="nav-item">
                                 <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
@@ -135,40 +135,7 @@ const Home = {
                         </div>
                     </div>
                 </div>
-
-                <!-- the team -->
-                <div id="team" class="row">
-                    <div class="col-9 text-center">
-                        <h1>HI</h1>
-                    </div>
-                </div>
-
-                <!-- contact -->
-                <div id="contact" class="row">
-
-                </div>
             </main>
-
-            <footer>
-                <div class="container-fluid">
-                    <div class="row text-center">
-                        <div class="col">
-                            column 1
-                        </div>
-                        <div class="col">
-                            column 2
-                        </div>
-                        <div class="col">
-                            column 3
-                        </div>
-
-                        <div class="col-12">
-                            <hr>
-                            <h6>&copy; ez-edu</h6>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     `,
     methods: {
