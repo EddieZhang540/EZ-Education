@@ -21,7 +21,7 @@ const Home = {
                                 <a class="nav-link" href="#home" v-smooth-scroll="{ duration: 1000 }">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 1000, offset: -155 }">About</a>
+                                <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 1000, offset: -105 }">About</a>
                             </li>
                             <!--
                             <li class="nav-item">
@@ -52,7 +52,7 @@ const Home = {
                     <div class="caption text-center">
                         <h1>WELCOME TO EZ EDUCATION</h1>
                         <h3>YOUR PERSONAL JOURNEY STARTS HERE</h3>
-                        <a href="#about" v-smooth-scroll="{ duration: 1000, offset: -155 }">
+                        <a href="#about" v-smooth-scroll="{ duration: 1000, offset: -105 }">
                             <img src="img/down-arrow.png" width="75" height="80" alt="">
                         </a>
                     </div>
@@ -67,7 +67,7 @@ const Home = {
                         <h1>ABOUT</h1>
                         <hr class="short">
                         <p>
-                        EZ Education is a student-run initiative based in the Greater Toronto Area. We operate as a not-for-profit organization partnered with the Rotary Club of Mississauga Streetsville.
+                        EZ Education is a student-run initiative based in the Greater Toronto Area, Canada. We operate as a not-for-profit organization partnered with the Rotary Club of Mississauga Streetsville.
                         </p>
                         <p>
                         We provide a platform that connects people learning English as a foreign language with volunteer teachers who are fluent in English.
@@ -90,36 +90,45 @@ const Home = {
                 </div>
 
                 <div id="for-student" class="row">
-                    <div class="col-9 text-center">
+                    <div class="col-10 text-center">
                         <div class="row">
-                            <h2 class="col">What we offer</h2>
+                            <h2 class="col">FOR STUDENTS, WE OFFER...</h2>
                         </div>
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-lg">
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <div style="background: #fceef3"><i class="fas fa-drafting-compass" style="color: #ff689b"></i></div>
                                         <h4>Flexibility</h4>
-                                        <p class="card-text">We aim to offer a more relaxed and flexible learning environment than a traditional classroom. The teachers and students are free to decide which subjects to cover and how each lesson will be delivered to cater to the diverse range of learners.
+                                        <p class="card-text">
+                                            Recognizing that different individuals vary in background, proficiency and learning styles, EZ Education aims to offer a more relaxed and flexible learning environment than a traditional classroom.
+                                            Students are free to decide which subjects to cover and discuss how lesson will be delivered with their teachers.
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm">
+                            <div class="col-lg">
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <div style="background: #fff7e1"><i class="fas fa-balance-scale" style="color: #ffdc7b"></i></div>
                                         <h4>Authenticity</h4>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <p class="card-text">
+                                            Practical application is often an overlooked element in many ESL programs. Immigrant students could learn to read and write in English very well, only to find out that they have trouble understanding
+                                            native speakers. EZ Education recruits fluent English speakers in the GTA as volunteers teachers. By learning and interacting with their teachers, students will grasp the implicit cultural concepts and
+                                            idioms much more effectively than a regular English course.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm">
+                            <div class="col-lg">
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <div style="background: #dfd9ff"><i class="fas fa-wifi" style="color: #857aff"></i></div>
                                         <h4>Accessibility</h4>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <p class="card-text">
+                                            EZ Education is located in the GTA. However, we do not limit student membership to only new immigrants in the GTA. By delivering lessons through online platforms such as Zoom, Wechat, and WhatsApp, EZ
+                                            Education welcomes ESL students from any part of the world to have the opportunity to learn from a native English speaker, for free.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
