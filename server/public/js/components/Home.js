@@ -79,7 +79,7 @@ const Home = {
                 </div>
 
                 <div id="mission" class="row">
-                    <div class="col-7 text-center">
+                    <div class="col-8 text-center">
                         <h2>OUR MISSION</h2>
                         <p>
                             At EZ Education, we strive to help break down the language and cultural barriers that stand in the way of immigrants to English-speaking countries. We understand what it's like to be a stranger in a foriegn land,
