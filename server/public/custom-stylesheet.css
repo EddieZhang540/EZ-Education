@@ -24,7 +24,7 @@
 
 
 body {
-    font-size: 17px;
+    font-size: 2.2vh;
     font-family: "Montserrat", serif;
 
     overflow-x: hidden;
@@ -94,13 +94,13 @@ body {
 
 /* general styling */
 .row h1 {
-    font-size: 50px;
+    font-size: 6.5vh;
     font-weight: bolder;
 
     letter-spacing: 3px;
 }
 .row h2 {
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: bold;
 
     letter-spacing: 2px;
@@ -188,7 +188,7 @@ hr.short {
     -webkit-transform: skewY(-3deg);
     transform: skewY(-3deg);
 }
-#mission .col-7{
+#mission .col-8{
     -ms-transform: skewY(3deg);
     -webkit-transform: skewY(3deg);
     transform: skewY(3deg);
@@ -200,8 +200,8 @@ hr.short {
 
 /* what we offer for students */
 #for-student {
-    padding-top: 75px;
-    padding-bottom: 50px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     justify-content: center;
     
 }
@@ -209,20 +209,25 @@ hr.short {
     margin-bottom: 50px;
 }
 #for-student .card {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+#for-student .card-body {
+    margin-left: 0.3vw;
+    margin-right: 0.3vw;
 }
 #for-student h4 {
     padding-top: 20px;
-    font-size: 19px;
+    font-size: 2.5vh;
     font-weight: bold;
 }
 #for-student p {
+    font-size: 1.9vh;
     text-align: left;
 }
 #for-student i.fas {
-    font-size: 22px;
-    line-height: 40px;
+    font-size: 2.9vh;
+    line-height: 5.2vh;
 }
 
 /* the team */
