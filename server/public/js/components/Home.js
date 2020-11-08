@@ -51,7 +51,7 @@ const Home = {
                     <!-- captions -->
                     <div class="caption text-center">
                         <h1>WELCOME TO EZ EDUCATION</h1>
-                        <h3>YOUR PERSONAL JOURNEY STARTS HERE</h3>
+                        <h3>ESL LEARNING MADE EASY</h3>
                         <a href="#about" v-smooth-scroll="{ duration: 1000, offset: -105 }">
                             <img src="img/down-arrow.png" width="75" height="80" alt="">
                         </a>
