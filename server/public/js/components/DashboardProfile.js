@@ -69,10 +69,17 @@ const DashboardProfile = {
         return {
             user: this.$session.get("user"),
             errors: {},
-            hobbies: this.$session.get("user").hobby,
+            hobbies: [],
         };
     },
     methods: {
+        createHobbiesTags: function () {
+            var hobbiesArray = this.$session.get("user").hobby.split(",");
+            hobbiesArray.forEach((h, i) => {
+                let t = { key: i, value: h };
+                this.hobbies.push(t);
+            });
+        },
         validateForm: function () {
             this.errors = {};
             this.validateEmail();
@@ -143,5 +150,9 @@ const DashboardProfile = {
         hobbies: function () {
             this.validateHobbies();
         },
+    },
+    //load & parse vuerro tags
+    beforeMount() {
+        this.createHobbiesTags();
     },
 };

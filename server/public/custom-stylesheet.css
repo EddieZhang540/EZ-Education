@@ -24,7 +24,7 @@
 
 
 body {
-    font-size: 2.2vh;
+    font-size: 2.4vh;
     font-family: "Montserrat", serif;
 
     overflow-x: hidden;
@@ -222,7 +222,7 @@ hr.short {
     font-weight: bold;
 }
 #for-student p {
-    font-size: 1.9vh;
+    font-size: 2.2vh;
     text-align: left;
 }
 #for-student i.fas {
