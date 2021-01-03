@@ -19,7 +19,7 @@
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
-    --gray: #a1a1a1;
+    --gray: #9b9b9b;
 }
 
 
@@ -33,9 +33,6 @@ body {
 /* main header */
 .main-header nav {
     background-color: rgba(255, 255, 255, 0.95);
-}
-.main-header .navbar-brand {
-    background-color: var(--yellow);
 }
 .main-header .navbar-collapse.collapsing .nav-item a,
 .main-header .navbar-collapse.show .nav-item a {
@@ -255,7 +252,7 @@ footer {
     background-color: var(--darkgray);
 }
 
-/* fix for sticky navbar covering elements onmobile */
+/* fix for sticky navbar covering elements on mobile */
 /* @media (max-width: 991px) {
     main {
         padding-top: 0;
@@ -269,54 +266,71 @@ footer {
 /* header */
 .dashboard-header .navbar {
     background-color: #fff;
-    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0.15rem 2rem 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 2px;
+    padding-top: 2px;
 }
 
-/* main */
+/* body */
 .dashboard-main {
-    padding-top: 106px;
+    padding-top: 74px;
+}
+.content {
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+.dashboard-main .sidebar {
+    background: var(--gray);
 }
 .dashboard-main .sidebar .nav-item {
     padding-bottom: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
+}
+.dashboard-main .sidebar i {
+    padding-right: 8px;
 }
 .dashboard-main .sidebar .nav-item a {
-    transition: color 0.15s;
-
-    color: var(--darkgray);
+    transition: color 0.3s, padding 0.5s;
+    color: #f8f8f8;
 }
 .dashboard-main .sidebar .nav-item a:hover {
-    color: #2b2b2b;
+    color: var(--purple);
 }
 .dashboard-main .sidebar .nav-item .router-link-exact-active {
     padding-left: 20px;
-    color: #2b2b2b;
+    color: var(--purple);
     font-weight: bold;
 }
 
+/* mobile-specific styling */
 @media (min-width: 768px) {
     .dashboard-main .sidebar {
         position: fixed;
         z-index: 1;
 
         height: 100%;
-        padding-top: 20px;
+        padding-top: 30px;
 
-        background-color: #f4f4f4;
-        box-shadow: 0.15rem 0 1.75rem 0 rgba(0, 0, 0, 0.16);
+        /* box-shadow: 0.15rem 0 1.75rem 0 rgba(0, 0, 0, 0.16); */
+    }
+    .dashboard-main .sidebar .logout {
+        padding-top: 55vh;
     }
     .dashboard-main .content {
-        width: 74.5vw;
-        padding-top: 20px;
-        padding-left: 25.5vw;
+        width: 80vw;
+        padding-top: 40px;
+        padding-left: 20vw;
+        padding-right: 5vw;
     }
 }
 @media (max-width: 767px) {
     .dashboard-main .sidebar {
         border-bottom: 2px solid var(--lightgray);
-        background-color: #f4f4f4;
     }
     .dashboard-main .content {
+        padding-top: 40px;
+    }
+    .dashboard-header .navbar .name {
         padding-top: 20px;
     }
 }

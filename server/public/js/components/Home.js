@@ -4,8 +4,7 @@ const Home = {
             <header class="main-header">
                 <nav class="navbar fixed-top navbar-expand-lg shadow">
                     <router-link class="navbar-brand" to="/">
-                        <img src="img/logo-small.png" width="80" height="80" alt="EZ Education">
-                        <span>EZ Education</span>
+                        <img src="img/ez education logo copy.png" height="80" alt="EZ Education">
                         <!-- <img src="img/brand.png" width="164" height="80" alt="EZ Education"> -->
                     </router-link>
 
