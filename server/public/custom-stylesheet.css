@@ -275,14 +275,17 @@ footer {
     padding-left: 3vw;
 }
 .dashboard-header .navbar .dropdown-menu .dropdown-item {
-    padding: 5px 0px 5px 20px;
+    padding: 8px 0px 8px 25px;
+}
+.dashboard-header .navbar .dropdown-menu .dropdown-item i {
+    padding-right: 10px;
 }
 .dashboard-header .navbar .dropdown-menu .logout {
     color: var(--red);
 }
 .dashboard-header .navbar .dropdown-menu .dropdown-item.active, 
 .dashboard-header .navbar .dropdown-menu .dropdown-item:active {
-    background-color: var(--darkgray);
+    background-color: var(--gray);
 }
 
 /* body */
@@ -306,7 +309,7 @@ footer {
     padding-right: 5px;
 }
 .dashboard-main .sidebar .nav-item a {
-    transition: color 0.3s, padding 0.5s;
+    transition: color 0.3s, padding 0.4s;
     color: #bdbdbd;
 }
 .dashboard-main .sidebar .nav-item a:hover {
