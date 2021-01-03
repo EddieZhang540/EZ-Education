@@ -6,6 +6,7 @@
     --purple: #8415ab;
     --darkpurple: #5c0e78;
     --yellow: #e9dc25;
+    --darkblue-gray: #2a4853;
     --lightgray: #e4e4e4;
     --darkgray: #5c5c5c;
     --black: #000;
@@ -266,41 +267,57 @@ footer {
 /* header */
 .dashboard-header .navbar {
     background-color: #fff;
-    box-shadow: 0 0.15rem 2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.15rem 1.5rem 0 rgba(0, 0, 0, 0.05);
     padding-bottom: 2px;
     padding-top: 2px;
+}
+.dashboard-header .navbar .name {
+    padding-left: 3vw;
+}
+.dashboard-header .navbar .dropdown-menu .dropdown-item {
+    padding: 5px 0px 5px 20px;
+}
+.dashboard-header .navbar .dropdown-menu .logout {
+    color: var(--red);
+}
+.dashboard-header .navbar .dropdown-menu .dropdown-item.active, 
+.dashboard-header .navbar .dropdown-menu .dropdown-item:active {
+    background-color: var(--darkgray);
 }
 
 /* body */
 .dashboard-main {
+    font-size: 2.1vh;
     padding-top: 74px;
 }
 .content {
     height: 100vh;
     background-color: #f7f7f7;
 }
+
+/* sidebar */
 .dashboard-main .sidebar {
-    background: var(--gray);
+    background: linear-gradient(to bottom, var(--darkblue-gray) 20%, #4a8283 100%);
 }
 .dashboard-main .sidebar .nav-item {
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding: 5px 0px 5px 10px;
 }
 .dashboard-main .sidebar i {
-    padding-right: 8px;
+    padding-right: 5px;
 }
 .dashboard-main .sidebar .nav-item a {
     transition: color 0.3s, padding 0.5s;
-    color: #f8f8f8;
+    color: #bdbdbd;
 }
 .dashboard-main .sidebar .nav-item a:hover {
-    color: var(--purple);
+    color: #e9e9e9;
 }
 .dashboard-main .sidebar .nav-item .router-link-exact-active {
-    padding-left: 20px;
-    color: var(--purple);
+    padding: 10px 0px 10px 22px;
+    color: var(--white);
     font-weight: bold;
 }
+
 
 /* mobile-specific styling */
 @media (min-width: 768px) {
@@ -313,24 +330,25 @@ footer {
 
         /* box-shadow: 0.15rem 0 1.75rem 0 rgba(0, 0, 0, 0.16); */
     }
-    .dashboard-main .sidebar .logout {
-        padding-top: 55vh;
-    }
     .dashboard-main .content {
         width: 80vw;
         padding-top: 40px;
         padding-left: 20vw;
         padding-right: 5vw;
     }
+    .dashboard-header .navbar .name .dropdown-menu {
+        margin-top: 24px;
+    }
 }
 @media (max-width: 767px) {
     .dashboard-main .sidebar {
+        margin-top: 23.5px;
         border-bottom: 2px solid var(--lightgray);
     }
     .dashboard-main .content {
         padding-top: 40px;
     }
     .dashboard-header .navbar .name {
-        padding-top: 20px;
+        margin-left: 85vw;
     }
 }

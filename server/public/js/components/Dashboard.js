@@ -2,19 +2,28 @@ const Dashboard = {
     template: `
         <div id="dashboard">
             <header class="dashboard-header">
-                <nav class="navbar fixed-top navbar-expand-md">
-                    <div class="navbar-brand">
-                        <img src="img/logo-small.png" width="60" height="60" />
-                        <span>EZ Education</span>
+                <nav class="navbar fixed-top navbar-expand-md row">
+                    <div class="col-md-11">
+                        <div class="navbar-brand">
+                            <img src="img/logo-small.png" width="60" height="60" />
+                            <span>EZ Education</span>
+                        </div>
+
+                        <span class="navbar-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </span>
                     </div>
 
-                    <span class="navbar-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </span>
-
-                    <span class="navbar-item ml-auto name">test</span>
+                    <div class="navbar-item name dropdown col-md-1">
+                        <span class="dropdown-toggle" href="#" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{fullName}}</span>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+                            <router-link class="dropdown-item" to="/dashboardSettings"> <i class="fas fa-sliders-h"></i> Settings</router-link>
+                            <div class="dropdown-divider"></div>
+                            <router-link class="dropdown-item logout" to="/" v-on:click="logout"> <i class="fas fa-sign-out-alt"></i> Logout </router-link>
+                        </div>
+                    </div>
                 </nav>
             </header>
 
@@ -28,12 +37,6 @@ const Dashboard = {
                             <li class="nav-item">
                                 <router-link class="nav-link" to="/dashboardProfile"> <i class="fas fa-user-circle"></i> Profile </router-link>
                             </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/dashboardSettings"> <i class="fas fa-sliders-h"></i> Settings</router-link>
-                            </li>
-                            <li class="nav-item logout" v-on:click="logout">
-                                <router-link class="nav-link" to="/"> <i class="fas fa-sign-out-alt"></i> Logout</router-link>
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -46,6 +49,11 @@ const Dashboard = {
         </div>
 
     `,
+    data: function () {
+        return {
+            fullName: this.$session.get("user").givenname + " " + this.$session.get("user").surname + " ",
+        };
+    },
     methods: {
         logout: function () {
             this.$session.destroy();
