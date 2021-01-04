@@ -1,64 +1,11 @@
-<div>
-    <form>
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-email">Email</label>
-                <input type="text" class="form-control" id="profile-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
-                <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-password">Password</label>
-                <input type="password" class="form-control" id="profile-password" v-model="user.password" v-bind:class="{ 'border-danger': errors.password }" />
-                <p v-if="errors.password" class="text-danger">{{errors.password}}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-given">First name</label>
-                <input type="text" class="form-control" id="profile-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }" />
-                <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-surname">Last name</label>
-                <input type="text" class="form-control" id="profile-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }" />
-                <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-age">Age</label>
-                <input type="number" class="form-control" id="profile-age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }" oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0" />
-                <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-secondlang">Second Language</label>
-                <input type="text" class="form-control" id="profile-secondlang" v-model="user.secondlang" v-bind:class="{ 'border-danger': errors.secondlang }" />
-                <p v-if="errors.secondlang" class="text-danger">{{errors.secondlang}}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-contact">Contact</label>
-                <input type="text" class="form-control" id="profile-contact" v-model="user.contact" v-bind:class="{ 'border-danger': errors.contact }" />
-                <p v-if="errors.contact" class="text-danger">{{errors.contact}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-contactID">Contact ID</label>
-                <input type="text" class="form-control" id="profile-contactID" v-model="user.contactID" v-bind:class="{ 'border-danger': errors.contactID }" />
-                <p v-if="errors.contactID" class="text-danger">{{errors.contactID}}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col form-group" id="profile-hobby-field">
-                <label for="profile-hobby">Hobbies</label>
-                <p class="field-caption">Press 'enter' after each hobby to save it</p>
-                <voerro-tags-input type="text" element-id="profile-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
-                <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
-            </div>
-        </div>
-    </form>
+<div class="dashboard-home">
+    <div class="jumbotron">
+        <p class="h1">Thank you for your interest in EZ Education. A team member will contact you for an online meeting in the coming days.</p>
+        <p class="lead">Meanwhile, you can...</p>
+        <hr class="my-3" />
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Create a zoom account</li>
+            <li class="list-group-item">Write a short description about yourself</li>
+        </ul>
+    </div>
 </div>

@@ -76,9 +76,9 @@
                                 <template v-if="user.role === 'student' || user.role === 'teacher'">
                                     <p><span class="form-required">*</span> is a required field</p>
                                     <div class="form-group">
-                                        <label for="register-form-email">Email: <span class="form-required">*</span></label>
+                                        <label for="register-form-email">Email address: <span class="form-required">*</span></label>
                                         <p class="field-caption">You will use this email address to log into your account.</p>
-                                        <input type="text" class="form-control" id="register-form-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
+                                        <input type="email" class="form-control" id="register-form-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
                                         <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
                                     </div>
                                     <div class="form-group">

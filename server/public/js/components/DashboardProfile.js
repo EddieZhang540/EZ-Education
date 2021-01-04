@@ -4,8 +4,8 @@ const DashboardProfile = {
             <form>
                 <div class="row">
                     <div class="col-lg form-group">
-                        <label for="profile-email">Email</label>
-                        <input type="text" class="form-control" id="profile-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
+                        <label for="profile-email">Email address</label>
+                        <input type="email" class="form-control" id="profile-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
                         <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
                     </div>
                     <div class="col-lg form-group">
@@ -60,6 +60,13 @@ const DashboardProfile = {
                         <p class="field-caption">Press 'enter' after each hobby to save it</p>
                         <voerro-tags-input type="text" element-id="profile-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
                         <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="profile-bio">Description about me</label>
+                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }"></textarea>
                     </div>
                 </div>
             </form>
