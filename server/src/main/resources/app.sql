@@ -64,22 +64,22 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
   `create_time` datetime DEFAULT NULL,
-  `surname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `givenname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `surname` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `givenname` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
   `age` tinyint DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `wechat` varchar(64) DEFAULT NULL,
+  `secondlang` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `contact` varchar(64) DEFAULT NULL,
   `timezone` int,
-  `school` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `hobby` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `purpose` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `skill` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `contactID` varchar(64) DEFAULT NULL,
+  `hobby` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `purpose` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `skill` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`address`,`wechat`,`timezone`,`school`,`hobby`,`purpose`,`skill`) values
+insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`secondlang`,`contact`,`timezone`,`contactID`,`hobby`,`purpose`,`skill`) values
 
 (2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',0,'','','',''),
 

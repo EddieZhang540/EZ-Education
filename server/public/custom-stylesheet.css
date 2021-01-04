@@ -271,8 +271,8 @@ footer {
     padding-bottom: 2px;
     padding-top: 2px;
 }
-.dashboard-header .navbar .name {
-    padding-left: 3vw;
+.dashboard-header .navbar .dropdown {
+    text-align: right;
 }
 .dashboard-header .navbar .dropdown-menu .dropdown-item {
     padding: 8px 0px 8px 25px;
@@ -290,7 +290,7 @@ footer {
 
 /* body */
 .dashboard-main {
-    font-size: 2.1vh;
+    font-size: 2.2vh;
     padding-top: 74px;
 }
 .content {
@@ -350,8 +350,5 @@ footer {
     }
     .dashboard-main .content {
         padding-top: 40px;
-    }
-    .dashboard-header .navbar .name {
-        margin-left: 85vw;
     }
 }

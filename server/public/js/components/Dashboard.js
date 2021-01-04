@@ -3,7 +3,7 @@ const Dashboard = {
         <div id="dashboard">
             <header class="dashboard-header">
                 <nav class="navbar fixed-top navbar-expand-md row">
-                    <div class="col-md-11">
+                    <div class="col-md-4">
                         <div class="navbar-brand">
                             <img src="img/logo-small.png" width="60" height="60" />
                             <span>EZ Education</span>
@@ -16,7 +16,7 @@ const Dashboard = {
                         </span>
                     </div>
 
-                    <div class="navbar-item name dropdown col-md-1">
+                    <div class="navbar-item name dropdown col-md-8">
                         <span class="dropdown-toggle" href="#" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{fullName}}</span>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
                             <router-link class="dropdown-item" to="/dashboardSettings"> <i class="fas fa-sliders-h"></i> Settings</router-link>

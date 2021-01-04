@@ -13,7 +13,7 @@ public interface UserDao {
 
     long create(User user);
 
-    int updateUserWechat(@Param("wechat") String wechat, @Param("id") Long id);
+    // int updateUserWechat(@Param("wechat") String wechat, @Param("id") Long id);
 
     List<User> getUserByEmail(@Param("email") String email);
 

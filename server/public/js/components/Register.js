@@ -3,32 +3,13 @@ const Register = {
         return {
             user: { role: "" },
             errors: {},
-            //            timezone : [
-            //                { text: 'UTC +12', value: 'UTC +12' },
-            //                { text: 'UTC +11', value: 'UTC +11' },
-            //                { text: 'UTC +10', value: 'UTC +10' },
-            //                { text: 'UTC +9', value:  'UTC +9' },
-            //                { text: 'UTC +8', value:  'UTC +8' },
-            //                { text: 'UTC +7', value:  'UTC +7' },
-            //                { text: 'UTC +6', value:  'UTC +6' },
-            //                { text: 'UTC +5', value:  'UTC +5' },
-            //                { text: 'UTC +4', value:  'UTC +4' },
-            //                { text: 'UTC +3', value:  'UTC +3' },
-            //                { text: 'UTC +2', value:  'UTC +2' },
-            //                { text: 'UTC +1', value:  'UTC +1' },
-            //                { text: 'UTC +0', value:  'UTC +0' },
-            //                { text: 'UTC -1', value:  'UTC -1' },
-            //                { text: 'UTC -2', value:  'UTC -2' },
-            //                { text: 'UTC -3', value:  'UTC -3' },
-            //                { text: 'UTC -4', value:  'UTC -4' },
-            //                { text: 'UTC -5', value:  'UTC -5' },
-            //                { text: 'UTC -6', value:  'UTC -6' },
-            //                { text: 'UTC -7', value:  'UTC -7' },
-            //                { text: 'UTC -8', value:  'UTC -8' },
-            //                { text: 'UTC -9', value:  'UTC -9' },
-            //                { text: 'UTC -10', value: 'UTC -10' },
-            //                { text: 'UTC -11', value: 'UTC -11' },
-            //            ],
+            contactList: [
+                { text: "Skype", value: "Skype" },
+                { text: "Discord", value: "Discord" },
+                { text: "WhatsApp", value: "WhatsApp" },
+                { text: "WeChat", value: "WeChat" },
+                { text: "Messenger", value: "Messenger" },
+            ],
             confirmPassword: "",
             hobbies: [],
         };
@@ -76,6 +57,8 @@ const Register = {
             this.validateSurname();
             this.validateGivenname();
             this.validateAge();
+            this.validateContact();
+            this.validateContactID();
             this.validateHobbies();
             this.validatePurpose();
             this.validateSkill();
@@ -124,6 +107,24 @@ const Register = {
                 this.errors.age = "This is a required field";
             }
         },
+        validateContact: function () {
+            delete this.errors.contact;
+            if (!this.user.contact) {
+                this.errors.contact = "This is a required field";
+            }
+        },
+        validateContactID: function () {
+            delete this.errors.contactID;
+            if (!this.user.contactID) {
+                this.errors.contactID = "This is a required field";
+            }
+        },
+        validateSecondLang: function () {
+            delete this.errors.secondlang;
+            if (!this.user.secondlang) {
+                this.errors.secondlang = "This is a required field";
+            }
+        },
         validateHobbies: function () {
             delete this.errors.hobbies;
             if (this.hobbies.length < 2) {
@@ -163,6 +164,12 @@ const Register = {
         },
         "user.age": function () {
             this.validateAge();
+        },
+        "user.contact": function () {
+            this.validateContact();
+        },
+        "user.contactID": function () {
+            this.validateContactID();
         },
         hobbies: function () {
             this.validateHobbies();

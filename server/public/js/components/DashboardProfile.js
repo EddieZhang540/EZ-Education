@@ -35,22 +35,22 @@ const DashboardProfile = {
                         <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
                     </div>
                     <div class="col-lg form-group">
-                        <label for="profile-address">Address</label>
-                        <input type="text" class="form-control" id="profile-address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }" />
-                        <p v-if="errors.address" class="text-danger">{{errors.address}}</p>
+                        <label for="profile-secondlang">Second Language</label>
+                        <input type="text" class="form-control" id="profile-secondlang" v-model="user.secondlang" v-bind:class="{ 'border-danger': errors.secondlang }" />
+                        <p v-if="errors.secondlang" class="text-danger">{{errors.secondlang}}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg form-group">
-                        <label for="profile-wechat">WeChat ID</label>
-                        <input type="text" class="form-control" id="profile-wechat" v-model="user.wechat" v-bind:class="{ 'border-danger': errors.wechat }" />
-                        <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
+                        <label for="profile-contact">Contact</label>
+                        <input type="text" class="form-control" id="profile-contact" v-model="user.contact" v-bind:class="{ 'border-danger': errors.contact }" />
+                        <p v-if="errors.contact" class="text-danger">{{errors.contact}}</p>
                     </div>
                     <div class="col-lg form-group">
-                        <label for="profile-school">School</label>
-                        <input type="text" class="form-control" id="profile-school" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }" />
-                        <p v-if="errors.school" class="text-danger">{{errors.school}}</p>
+                        <label for="profile-contactID">Contact ID</label>
+                        <input type="text" class="form-control" id="profile-contactID" v-model="user.contactID" v-bind:class="{ 'border-danger': errors.contactID }" />
+                        <p v-if="errors.contactID" class="text-danger">{{errors.contactID}}</p>
                     </div>
                 </div>
 

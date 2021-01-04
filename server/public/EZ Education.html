@@ -117,28 +117,21 @@
                                         <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label for="register-form-address">Address: </label>
-                                        <input type="text" class="form-control" id="register-form-address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }" />
-                                        <p v-if="errors.address" class="text-danger">{{errors.address}}</p>
+                                        <label for="register-form-secondlang">If you are fluent in a language other than English, please specify: <span class="form-required">*</span></label>
+                                        <input type="text" class="form-control" id="register-form-secondlang" v-model="user.secondlang" v-bind:class="{ 'border-danger': errors.secondlang }" />
+                                        <p v-if="errors.secondlang" class="text-danger">{{errors.secondlang}}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label for="register-form-wechat">WeChat ID: </label>
-                                        <input type="text" class="form-control" id="register-form-wechat" v-model="user.wechat" v-bind:class="{ 'border-danger': errors.wechat }" />
-                                        <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
-                                    </div>
-
-                                    <!-- <div class="form-group">
-                                        <label for="register-form-timezone">Timezone: <span class="form-required">*</span></label>
-                                        <select v-model="user.timezone" class="form-control" id="register-form-timezone" v-bind:class="{ 'border-danger': errors.timezone }">
-                                            <option v-for="option in timezone" v-bind:value="option.value">{{ option.text }}</option>
+                                        <label for="register-form-contact">Preferred platform for contact: <span class="form-required">*</span></label>
+                                        <select type="text" class="form-control" id="register-form-contact" v-model="user.contact" v-bind:class="{ 'border-danger': errors.contact }">
+                                            <option v-for="contact in contactList" v-bind:value="contact.value">{{ contact.text }}</option>
                                         </select>
-                                        <p v-if="errors.timezone" class="text-danger">{{errors.timezone}}</p>
-                                    </div> -->
-
+                                        <p v-if="errors.contact" class="text-danger">{{errors.contact}}</p>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="register-form-school">School: </label>
-                                        <input type="text" class="form-control" id="register-form-school" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }" />
-                                        <p v-if="errors.school" class="text-danger">{{errors.school}}</p>
+                                        <label for="register-form-contactID">Contact ID: <span class="form-required">*</span></label>
+                                        <input type="text" class="form-control" id="register-form-contactID" v-model="user.contactID" v-bind:class="{ 'border-danger': errors.contactID }" />
+                                        <p v-if="errors.contactID" class="text-danger">{{errors.contactID}}</p>
                                     </div>
                                     <div class="form-group" id="register-form-hobby-field">
                                         <label for="register-form-hobby">What are your hobbies? Please enter at least 2: <span class="form-required">*</span></label>
