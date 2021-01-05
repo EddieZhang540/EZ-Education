@@ -338,6 +338,9 @@ footer {
 .dashboard-profile .form-group label {
     font-weight: bold;
 }
+.dashboard-profile .square-btn {
+    border-radius: 0;
+}
 
 
 /* mobile-specific styling */

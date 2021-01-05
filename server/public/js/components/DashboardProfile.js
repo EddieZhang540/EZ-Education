@@ -5,7 +5,7 @@ const DashboardProfile = {
                 <div class="row mb-4">
                     <div class="col-sm-11 h3">General Information</div>
                     <div class="col-sm-1 edit-icon">
-                        <button type="button" class="btn btn-success" v-on:click="editMode = !editMode"><i class="fas fa-edit" v-bind:class="{ 'fas fa-times': editMode }"></i></button>
+                        <button type="button" class="btn btn-success square-btn" v-on:click="editMode = !editMode"><i class="fas fa-edit" v-bind:class="{ 'fas fa-times': editMode }"></i></button>
                     </div>
                 </div>
 
@@ -80,8 +80,13 @@ const DashboardProfile = {
                 <div class="row form-group">
                     <div class="col">
                         <label for="profile-bio">Description about you</label>
-                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }" v-bind:readonly="!editMode" v-on:click="editMode = true"></textarea>
+                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }" v-on:click="editMode = true"></textarea>
                     </div>
+                </div>
+
+                <div v-if="editMode">
+                    <button type="button" class="btn btn-success" v-on:click="update">Update</button>
+                    <button type="button" class="btn btn-secondary" v-on:click="cancel">Cancel</button>
                 </div>
             </form>
         </div>
@@ -102,6 +107,20 @@ const DashboardProfile = {
                 this.hobbies.push(t);
             });
         },
+        cancel: function () {
+            if (!this.validateForm()) return;
+            this.user = this.$session.get("user");
+            this.editMode = false;
+        },
+        update: function () {
+            if (!this.validateForm()) return;
+            var hobby = "";
+            this.hobbies.forEach((h, i) => {
+                hobby += h.value + (i + 1 === this.hobbies.length ? "" : ",");
+            });
+            this.user.hobby = hobby;
+            this.editMode = false;
+        },
         validateForm: function () {
             this.errors = {};
             this.validateEmail();
@@ -109,6 +128,8 @@ const DashboardProfile = {
             this.validateSurname();
             this.validateGivenname();
             this.validateAge();
+            this.validateContact();
+            this.validateContactID();
             this.validateHobbies();
             for (let key in this.errors) {
                 return false;
@@ -145,6 +166,18 @@ const DashboardProfile = {
                 this.errors.age = "This is a required field";
             }
         },
+        validateContact: function () {
+            delete this.errors.contact;
+            if (!this.user.contact) {
+                this.errors.contact = "This is a required field";
+            }
+        },
+        validateContactID: function () {
+            delete this.errors.contactID;
+            if (!this.user.contactID) {
+                this.errors.contactID = "This is a required field";
+            }
+        },
         validateHobbies: function () {
             delete this.errors.hobbies;
             if (this.hobbies.length < 2) {
@@ -168,6 +201,12 @@ const DashboardProfile = {
         },
         "user.age": function () {
             this.validateAge();
+        },
+        "user.contact": function () {
+            this.validateContact();
+        },
+        "user.contactID": function () {
+            this.validateContactID();
         },
         hobbies: function () {
             this.validateHobbies();
