@@ -331,6 +331,14 @@ footer {
     text-decoration: none;
 }
 
+/* profile */
+.dashboard-profile .edit-icon {
+    text-align: right;
+}
+.dashboard-profile .form-group label {
+    font-weight: bold;
+}
+
 
 /* mobile-specific styling */
 @media (min-width: 768px) {

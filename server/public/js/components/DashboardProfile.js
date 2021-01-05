@@ -1,72 +1,86 @@
 const DashboardProfile = {
     template: `
         <div>
-            <form>
-                <div class="row">
-                    <div class="col-lg form-group">
-                        <label for="profile-email">Email address</label>
-                        <input type="email" class="form-control" id="profile-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }" />
-                        <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
-                    </div>
-                    <div class="col-lg form-group">
-                        <label for="profile-password">Password</label>
-                        <input type="password" class="form-control" id="profile-password" v-model="user.password" v-bind:class="{ 'border-danger': errors.password }" />
-                        <p v-if="errors.password" class="text-danger">{{errors.password}}</p>
+            <form class="dashboard-profile">
+                <div class="row mb-4">
+                    <div class="col-sm-11 h3">General Information</div>
+                    <div class="col-sm-1 edit-icon">
+                        <button type="button" class="btn btn-success" v-on:click="editMode = !editMode"><i class="fas fa-edit" v-bind:class="{ 'fas fa-times': editMode }"></i></button>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg form-group">
-                        <label for="profile-given">First name</label>
-                        <input type="text" class="form-control" id="profile-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }" />
+                <div class="row form-group">
+                    <label class="col-lg-3 col-form-label" for="profile-given">First name</label>
+                    <div class="col-lg-3">
+                        <input type="text" id="profile-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname, 'form-control':editMode, 'form-control-plaintext': !editMode }" v-bind:readonly="!editMode" />
                         <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
                     </div>
-                    <div class="col-lg form-group">
-                        <label for="profile-surname">Last name</label>
-                        <input type="text" class="form-control" id="profile-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }" />
+                    <label class="col-lg-3 col-form-label" for="profile-surname">Last name</label>
+                    <div class="col-lg-3">
+                        <input type="text" id="profile-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname, 'form-control':editMode, 'form-control-plaintext': !editMode }" v-bind:readonly="!editMode" />
                         <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg form-group">
-                        <label for="profile-age">Age</label>
-                        <input type="number" class="form-control" id="profile-age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }" oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0" />
+                <hr v-if="!editMode"/>
+
+                <div class="row form-group">
+                    <label class="col-lg-3 col-form-label" for="profile-age">Age</label>
+                    <div class="col-lg-3">
+                        <input
+                            type="number"
+                            id="profile-age"
+                            v-model="user.age"
+                            v-bind:class="{ 'border-danger': errors.age, 'form-control':editMode, 'form-control-plaintext': !editMode }"
+                            v-bind:readonly="!editMode"
+                            oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0"
+                        />
                         <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
                     </div>
-                    <div class="col-lg form-group">
-                        <label for="profile-secondlang">Second Language</label>
-                        <input type="text" class="form-control" id="profile-secondlang" v-model="user.secondlang" v-bind:class="{ 'border-danger': errors.secondlang }" />
+                    <label class="col-lg-3 col-form-label" for="profile-secondlang">Secondary language</label>
+                    <div class="col-lg-3">
+                        <input type="text" id="profile-secondlang" v-model="user.secondlang" v-bind:class="{ 'border-danger': errors.secondlang, 'form-control':editMode, 'form-control-plaintext': !editMode }" v-bind:readonly="!editMode" />
                         <p v-if="errors.secondlang" class="text-danger">{{errors.secondlang}}</p>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg form-group">
-                        <label for="profile-contact">Contact</label>
-                        <input type="text" class="form-control" id="profile-contact" v-model="user.contact" v-bind:class="{ 'border-danger': errors.contact }" />
+                <hr v-if="!editMode"/>
+
+                <div class="row form-group">
+                    <label class="col-lg-3 col-form-label" for="profile-contact">Contact</label>
+                    <div class="col-lg-3">
+                        <input type="text" id="profile-contact" v-model="user.contact" v-bind:class="{ 'border-danger': errors.contact, 'form-control':editMode, 'form-control-plaintext': !editMode }" v-bind:readonly="!editMode" />
                         <p v-if="errors.contact" class="text-danger">{{errors.contact}}</p>
                     </div>
-                    <div class="col-lg form-group">
-                        <label for="profile-contactID">Contact ID</label>
-                        <input type="text" class="form-control" id="profile-contactID" v-model="user.contactID" v-bind:class="{ 'border-danger': errors.contactID }" />
+                    <label class="col-lg-3 col-form-label" for="profile-contactID">Contact ID</label>
+                    <div class="col-lg-3">
+                        <input type="text" id="profile-contactID" v-model="user.contactID" v-bind:class="{ 'border-danger': errors.contactID, 'form-control':editMode, 'form-control-plaintext': !editMode }" v-bind:readonly="!editMode" />
                         <p v-if="errors.contactID" class="text-danger">{{errors.contactID}}</p>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col form-group" id="profile-hobby-field">
+                <hr v-if="!editMode"/>
+
+                <div class="row form-group">
+                    <div class="col" id="profile-hobby-field">
                         <label for="profile-hobby">Hobbies</label>
-                        <p class="field-caption">Press 'enter' after each hobby to save it</p>
-                        <voerro-tags-input type="text" element-id="profile-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
-                        <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+                        <div v-if="editMode">
+                            <p class="field-caption">Press 'enter' after each hobby to save it</p>
+                            <voerro-tags-input type="text" element-id="profile-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }"></voerro-tags-input>
+                            <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+                        </div>
+                        <ul v-else>
+                            <li v-for="hobby in hobbies" :key="hobby.value">{{hobby.value}}</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col form-group">
-                        <label for="profile-bio">Description about me</label>
-                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }"></textarea>
+                <hr v-if="!editMode"/>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <label for="profile-bio">Description about you</label>
+                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }" v-bind:readonly="!editMode" v-on:click="editMode = true"></textarea>
                     </div>
                 </div>
             </form>
@@ -77,11 +91,12 @@ const DashboardProfile = {
             user: this.$session.get("user"),
             errors: {},
             hobbies: [],
+            editMode: false,
         };
     },
     methods: {
         createHobbiesTags: function () {
-            var hobbiesArray = this.$session.get("user").hobby.split(",");
+            var hobbiesArray = this.user.hobby.split(",");
             hobbiesArray.forEach((h, i) => {
                 let t = { key: i, value: h };
                 this.hobbies.push(t);
