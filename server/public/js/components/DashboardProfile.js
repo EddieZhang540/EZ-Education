@@ -5,7 +5,7 @@ const DashboardProfile = {
                 <div class="row mb-4">
                     <div class="col-sm-11 h3">General Information</div>
                     <div class="col-sm-1 edit-icon">
-                        <button type="button" class="btn btn-success square-btn" v-on:click="editMode = !editMode"><i class="fas fa-edit" v-bind:class="{ 'fas fa-times': editMode }"></i></button>
+                        <button type="button" class="btn btn-success square-btn" v-on:click="(editMode) ? cancel() : editMode = true"><i class="fas fa-edit" v-bind:class="{ 'fas fa-times': editMode }"></i></button>
                     </div>
                 </div>
 
@@ -107,11 +107,6 @@ const DashboardProfile = {
                 this.hobbies.push(t);
             });
         },
-        cancel: function () {
-            if (!this.validateForm()) return;
-            this.user = this.$session.get("user");
-            this.editMode = false;
-        },
         update: function () {
             if (!this.validateForm()) return;
             var hobby = "";
@@ -119,6 +114,28 @@ const DashboardProfile = {
                 hobby += h.value + (i + 1 === this.hobbies.length ? "" : ",");
             });
             this.user.hobby = hobby;
+            axios
+                .put("/update", this.user)
+                .then((response) => {
+                    if (response.status === 200) {
+                        if (response.data.result === "success") {
+                            this.$session.set("user", response.data.model);
+                            this.editMode = false;
+                        } else if (response.data.result === "failed") {
+                            alert("Update failed. Please try again.");
+                            this.cancel();
+                        }
+                    }
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    alert("Something went wrong on our end. Please try again.");
+                    this.cancel();
+                });
+        },
+        cancel: function () {
+            if (!this.validateForm()) return;
+            this.user = this.$session.get("user");
             this.editMode = false;
         },
         validateForm: function () {

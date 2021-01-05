@@ -72,6 +72,7 @@ CREATE TABLE `user` (
   `timezone` int,
   `contactID` varchar(64) DEFAULT NULL,
   `hobby` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `bio` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
   `purpose` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
   `skill` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -79,11 +80,11 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`secondlang`,`contact`,`timezone`,`contactID`,`hobby`,`purpose`,`skill`) values
+insert  into `user`(`id`,`email`,`password`,`enabled`,`create_time`,`surname`,`givenname`,`age`,`secondlang`,`contact`,`timezone`,`contactID`,`hobby`,`bio`,`purpose`,`skill`) values
 
-(2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',0,'','','',''),
+(2,'test1@test.com','123456',1,'2020-03-28 14:03:59','','',0,'','',0,'','','','',''),
 
-(3,'test2@test.com','123456',1,'2020-03-28 14:04:04','','',0,'','',0,'','','','');
+(3,'test2@test.com','123456',1,'2020-03-28 14:04:04','','',0,'','',0,'','','','','');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

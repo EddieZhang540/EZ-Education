@@ -30,9 +30,9 @@ public class UserController {
     public Response create(@RequestBody User user) { return userService.create(user); }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Response login(@RequestBody User user) {return userService.login(user); }
+    public Response login(@RequestBody User user) { return userService.login(user); }
 
-    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public Response update(@RequestBody User user) { return userService.update(user); }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)

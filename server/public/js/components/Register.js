@@ -43,7 +43,7 @@ const Register = {
                 })
                 .catch(function (error) {
                     console.error(error);
-                    alert("Register failed. Please try again later.");
+                    alert("Something went wrong on our end. Please try again later.");
                 });
         },
         cancel: function () {

@@ -95,7 +95,7 @@ const Home = {
                             <h2 class="col">FOR STUDENTS, WE OFFER...</h2>
                         </div>
                         <div class="row">
-                            <div class="col-lg">
+                            <div class="col-xl">
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div style="background: #fceef3"><i class="fas fa-drafting-compass" style="color: #ff689b"></i></div>
@@ -107,7 +107,7 @@ const Home = {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-xl">
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div style="background: #fff7e1"><i class="fas fa-balance-scale" style="color: #ffdc7b"></i></div>
@@ -120,7 +120,7 @@ const Home = {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-xl">
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div style="background: #dfd9ff"><i class="fas fa-wifi" style="color: #857aff"></i></div>

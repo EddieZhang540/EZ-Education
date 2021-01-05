@@ -13,6 +13,7 @@
         <result column="contact" property="contact"/>
         <result column="contactID" property="contactID"/>
         <result column="hobby" property="hobby"/>
+        <result column="bio" property="bio"/>
         <result column="purpose" property="purpose"/>
         <result column="skill" property="skill"/>
         <result column="password" property="password"/>
@@ -34,7 +35,7 @@
     <update id="update" parameterType="com.EZedu.model.User">
         UPDATE user set email=#{email},givenname=#{givenname},surname=#{surname},age=#{age},
         secondlang=#{secondlang},contact=#{contact},contactID=#{contactID},
-        hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
+        hobby=#{hobby},bio=#{bio},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
     </update>
     <!-- <update id="updateUserWechat">
         UPDATE user set wechat=#{wechat} WHERE id=#{id}

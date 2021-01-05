@@ -24,6 +24,7 @@ public class User implements UserDetails {
     private int timezone;
     private String contactID;
     private String hobby;
+    private String bio;
     private String purpose;
     private String skill;
     private String role;
@@ -99,6 +100,10 @@ public class User implements UserDetails {
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
+
+    public String getBio() { return bio; }
+
+    public void setBio(String bio) { this.bio = bio; }
 
     public String getPurpose() {
         return purpose;
