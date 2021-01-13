@@ -25,7 +25,7 @@
 
 
 body {
-    font-size: 2.4vh;
+    font-size: 2.3vh;
     font-family: "Montserrat", serif;
 
     overflow-x: hidden;
@@ -140,7 +140,7 @@ hr.short {
     text-shadow: 0 2px 10px black;
 }
 #home .caption h3 {
-    font-size: 2.8vw;
+    font-size: 2.7vw;
     font-weight: bold;
 
     margin-bottom: 10px;
@@ -171,11 +171,9 @@ hr.short {
     margin-bottom: 40px;
 }
 #about .rotary {
-    margin-top: 10vh;
+    margin: 12vh auto 12vh auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 50vh;
+    height: 40vh;
     width: auto;
 }
 /* mobile view */
