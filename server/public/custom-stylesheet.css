@@ -171,7 +171,7 @@ hr.short {
     margin-bottom: 40px;
 }
 #about .rotary {
-    margin: 12vh auto 12vh auto;
+    margin: 15vh auto 10vh auto;
     display: block;
     height: 40vh;
     width: auto;
@@ -180,6 +180,9 @@ hr.short {
 @media (max-width: 767px) {
     #about {
         height: auto;
+    }
+    #about .col-sm-6 {
+        padding: 0 35px 20px 35px;
     }
     #about hr.short {
         margin-right: 100vw;

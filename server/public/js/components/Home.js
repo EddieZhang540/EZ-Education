@@ -60,10 +60,11 @@ const Home = {
 
                 <!-- about -->
                 <div id="about" class="row">
-                    <div class="col-lg-5 center">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
                         <img class="rotary" src="img/rotary-logo.png" alt="" />
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-sm-6">
                         <h1>ABOUT</h1>
                         <hr class="short" />
                         <p>EZ Education is a student-run initiative based in the Greater Toronto Area, Canada. We operate as a not-for-profit organization partnered with the Rotary Club of Mississauga Streetsville.</p>
