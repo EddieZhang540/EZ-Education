@@ -159,7 +159,7 @@ hr.short {
 
 /* about page */
 #about {
-    height: 70vh;
+    height: 80vh;
     /* don't change, need for smooth scroll */
     padding-top: 50px;
 }
@@ -167,8 +167,16 @@ hr.short {
     padding: 0 30px 0 30px;
 }
 #about hr.short {
-    margin-right: 50vw;
+    margin-right: 100vw;
     margin-bottom: 40px;
+}
+#about .rotary {
+    margin-top: 10vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+    width: auto;
 }
 /* mobile view */
 @media (max-width: 767px) {
@@ -182,7 +190,7 @@ hr.short {
 
 /* our mission */
 #mission {
-    padding-top: 25vh;
+    padding-top: 20vh;
     padding-bottom: 15vh;
 
     color: #ffffff;
@@ -195,12 +203,17 @@ hr.short {
 
     justify-content: center;
     
-    -webkit-clip-path: polygon(0 0, 50% 12%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
-    clip-path: polygon(0 0, 50% 12%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+    /* -webkit-clip-path: polygon(0 0, 50% 12%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+    clip-path: polygon(0 0, 50% 12%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0); */
     
-    /* -ms-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
     -webkit-transform: skewY(-3deg);
-    transform: skewY(-3deg); */
+    transform: skewY(-3deg);
+}
+#mission .col-8 {
+    -ms-transform: skewY(3deg);
+    -webkit-transform: skewY(3deg);
+    transform: skewY(3deg);
 }
 #mission p {
     text-shadow: 0 2px 10px black;

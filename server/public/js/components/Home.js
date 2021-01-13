@@ -60,7 +60,9 @@ const Home = {
 
                 <!-- about -->
                 <div id="about" class="row">
-                    <div class="col-lg-3"></div>
+                    <div class="col-lg-5 center">
+                        <img class="rotary" src="img/rotary-logo.png" alt="" />
+                    </div>
                     <div class="col-lg-6">
                         <h1>ABOUT</h1>
                         <hr class="short" />
