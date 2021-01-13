@@ -1,69 +1,163 @@
-<div>
-    <form>
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-email">Email</label>
-                <input type="text" class="form-control" id="profile-email" v-model="user.email" v-bind:class="{ 'border-danger': errors.email }">
-                <p v-if="errors.email" class="text-danger">{{errors.email}}</p>
+<div class="EZ-main">
+    <header class="main-header">
+        <nav class="navbar fixed-top navbar-expand-lg shadow">
+            <router-link class="navbar-brand" to="/">
+                <img src="img/ez education logo copy.png" height="80" alt="EZ Education" />
+                <!-- <img src="img/brand.png" width="164" height="80" alt="EZ Education"> -->
+            </router-link>
+
+            <!-- collapse button class dependency -->
+            <span class="navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </span>
+
+            <div class="collapse navbar-collapse" id="navbarCollapsible">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" v-smooth-scroll="{ duration: 1000 }">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" v-smooth-scroll="{ duration: 1000, offset: -105 }">About</a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="//admin">Admin</router-link>
+                    </li>
+                    -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team" v-smooth-scroll="{ duration: 1000, offset: -105 }">The Team</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="#contact" v-smooth-scroll="{ duration: 1000, offset: -105 }">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary" v-on:click="signup">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary" v-on:click="login">Log In</a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-lg form-group">
-                <label for="profile-password">Password</label>
-                <input type="password" class="form-control" id="profile-password" v-model="user.password" v-bind:class="{ 'border-danger': errors.password }">
-                <p v-if="errors.password" class="text-danger">{{errors.password}}</p>
+        </nav>
+    </header>
+
+    <main>
+        <!-- home page -->
+        <div id="home">
+            <!-- captions -->
+            <div class="caption text-center">
+                <h1>WELCOME TO EZ EDUCATION</h1>
+                <h3>ESL LEARNING MADE EASY</h3>
+                <a href="#about" v-smooth-scroll="{ duration: 1000, offset: -105 }">
+                    <img src="img/down-arrow.png" width="75" height="80" alt="" />
+                </a>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-given">First name</label>
-                <input type="text" class="form-control" id="profile-given" v-model="user.givenname" v-bind:class="{ 'border-danger': errors.givenname }">
-                <p v-if="errors.givenname" class="text-danger">{{errors.givenname}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-surname">Last name</label>
-                <input type="text" class="form-control" id="profile-surname" v-model="user.surname" v-bind:class="{ 'border-danger': errors.surname }">
-                <p v-if="errors.surname" class="text-danger">{{errors.surname}}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-age">Age</label>
-                <input type="number" class="form-control" id="profile-age" v-model="user.age" v-bind:class="{ 'border-danger': errors.age }" oninput="if(value>99)value=99;if(value.length>2)value=value.slice(0,2);if(value<0)value=0">
-                <p v-if="errors.age" class="text-danger">{{errors.age}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-address">Address</label>
-                <input type="text" class="form-control" id="profile-address" v-model="user.address" v-bind:class="{ 'border-danger': errors.address }">
-                <p v-if="errors.address" class="text-danger">{{errors.address}}</p>
+        <!-- about -->
+        <div id="about" class="row">
+            <div class="col-1"></div>
+            <div class="col-4"></div>
+            <div class="col-6">
+                <h1>ABOUT</h1>
+                <hr class="short" />
+                <p>EZ Education is a student-run initiative based in the Greater Toronto Area, Canada. We operate as a not-for-profit organization partnered with the Rotary Club of Mississauga Streetsville.</p>
+                <p>We provide a platform that connects people learning English as a foreign language with volunteer teachers who are fluent in English.</p>
+                <p>Through one-on-one classes and discussions, EZ Education promotes a richer understanding of English and facilitates meaningful relationships between students and teachers.</p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg form-group">
-                <label for="profile-wechat">WeChat ID</label>
-                <input type="text" class="form-control" id="profile-wechat" v-model="user.wechat" v-bind:class="{ 'border-danger': errors.wechat }">
-                <p v-if="errors.wechat" class="text-danger">{{errors.wechat}}</p>
-            </div>
-            <div class="col-lg form-group">
-                <label for="profile-school">School</label>
-                <input type="text" class="form-control" id="profile-school" v-model="user.school" v-bind:class="{ 'border-danger': errors.school }">
-                <p v-if="errors.school" class="text-danger">{{errors.school}}</p>
+        <div id="mission" class="row">
+            <div class="col-8 text-center">
+                <h2>OUR MISSION</h2>
+                <p>
+                    At EZ Education, we strive to break down the cultural and linguistic barriers for immigrants to English-speaking countries. We understand what it's like to be a stranger in a foreign land, having experienced similar circumstances
+                    ourselves, which is why we work to ease the transition for as many newcomers as possible. We do so by building a motivated and diverse team. Through our curriculum and training, we aim to ensure that our students and teachers feel
+                    not only comfortable, but also excited about global communication and interaction.
+                </p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col form-group" id="profile-hobby-field">
-                <label for="profile-hobby">Hobbies</label>
-                <p class="field-caption">Press 'enter' after each hobby to save it</p>
-                <voerro-tags-input type="text" element-id="profile-hobby" v-model="hobbies" v-bind:class="{ 'border-danger': errors.hobbies }" :existing-tags="[
-                { key: 'web-development', value: 'Web Development' },
-                { key: 'php', value: 'PHP' },
-                { key: 'javascript', value: 'JavaScript' },
-                ]"
-                ></voerro-tags-input>
-                <p v-if="errors.hobbies" class="text-danger">{{errors.hobbies}}</p>
+        <div id="for-student" class="row">
+            <div class="col-10 text-center">
+                <div class="row">
+                    <h2 class="col">FOR STUDENTS, WE OFFER...</h2>
+                </div>
+                <div class="row">
+                    <div class="col-xl">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="fa-stack fa-2x">
+                                    <i class="fas fa-circle fa-stack-2x" style="color: #fceef3"></i>
+                                    <i class="fas fa-drafting-compass fa-stack-1x" style="color: #ff689b"></i>
+                                </div>
+                                <h4>Flexibility</h4>
+                                <p class="card-text">
+                                    Recognizing that different individuals vary in background, proficiency, and learning styles, EZ Education proposes a more relaxed and flexible learning environment than a traditional classroom. Students are allowed
+                                    and encouraged to discuss the delivery and content of the lessons with their teachers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="fa-stack fa-2x">
+                                    <i class="fas fa-circle fa-stack-2x" style="color: #fff7e1"></i>
+                                    <i class="fas fa-balance-scale fa-stack-1x" style="color: #ffdc7b"></i>
+                                </div>
+                                <h4>Authenticity</h4>
+                                <p class="card-text">
+                                    ESL students could often learn to read and write in English very well, but still struggle to understand native speakers. EZ Education recruits fluent English speakers in the GTA as volunteer teachers. They will
+                                    help students grasp the implicit cultural concepts and idioms much more effectively than a regular English course.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="fa-stack fa-2x">
+                                    <i class="fas fa-circle fa-stack-2x" style="color: #dfd9ff"></i>
+                                    <i class="fas fa-wifi fa-stack-1x" style="color: #857aff"></i>
+                                </div>
+                                <h4>Accessibility</h4>
+                                <p class="card-text">
+                                    EZ Education operates in the GTA. However, we do not limit student membership to only new immigrants in the GTA. By delivering lessons through platforms like Zoom, WeChat, and WhatsApp, EZ Education welcomes ESL
+                                    students from any part of the world to have the opportunity to learn from a native English speaker, for free.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+
+        <!-- the team -->
+        <div id="team" class="row">
+            <div class="col-9 text-center">
+                <h1>HI</h1>
+            </div>
+        </div>
+
+        <!-- contact -->
+        <div id="contact" class="row"></div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col">column 1</div>
+                <div class="col">column 2</div>
+                <div class="col">column 3</div>
+
+                <div class="col-12">
+                    <hr />
+                    <h6>&copy; ez-edu</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>

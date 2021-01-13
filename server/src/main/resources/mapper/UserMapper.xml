@@ -9,10 +9,11 @@
         <result column="givenname" property="givenname"/>
         <result column="surname" property="surname"/>
         <result column="age" property="age"/>
-        <result column="address" property="address"/>
-        <result column="wechat" property="wechat"/>
-        <result column="school" property="school"/>
+        <result column="secondlang" property="secondlang"/>
+        <result column="contact" property="contact"/>
+        <result column="contactID" property="contactID"/>
         <result column="hobby" property="hobby"/>
+        <result column="bio" property="bio"/>
         <result column="purpose" property="purpose"/>
         <result column="skill" property="skill"/>
         <result column="password" property="password"/>
@@ -28,17 +29,17 @@
     </select>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="com.EZedu.model.User">
         INSERT INTO user set email=#{email},password=md5(#{password}),givenname=#{givenname},surname=#{surname},age=#{age},
-        address=#{address},wechat=#{wechat},school=#{school},
+        secondlang=#{secondlang},contact=#{contact},contactID=#{contactID},
         hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled}
     </insert>
     <update id="update" parameterType="com.EZedu.model.User">
         UPDATE user set email=#{email},givenname=#{givenname},surname=#{surname},age=#{age},
-        address=#{address},wechat=#{wechat},school=#{school},
-        hobby=#{hobby},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
+        secondlang=#{secondlang},contact=#{contact},contactID=#{contactID},
+        hobby=#{hobby},bio=#{bio},purpose=#{purpose},skill=#{skill},enabled=#{enabled} WHERE id=#{id}
     </update>
-    <update id="updateUserWechat">
+    <!-- <update id="updateUserWechat">
         UPDATE user set wechat=#{wechat} WHERE id=#{id}
-    </update>
+    </update> -->
     <select id="getUserByEmail" resultMap="UserResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,role r,role_user ru WHERE u.`id`=ru.`user_id` AND
         r.`id`=ru.`rid` AND u.`id` NOT IN(SELECT u.`id` FROM user u,role_user ru WHERE u.`id`=ru.`user_id`

@@ -19,11 +19,12 @@ public class User implements UserDetails {
     private String surname;
     private String givenname;
     private int age;
-    private String address;
-    private String wechat;
+    private String secondlang;
+    private String contact;
     private int timezone;
-    private String school;
+    private String contactID;
     private String hobby;
+    private String bio;
     private String purpose;
     private String skill;
     private String role;
@@ -60,20 +61,20 @@ public class User implements UserDetails {
         this.age = age;
     }
 
-    public String getAddress() {
-        return address;
+    public String getSecondlang() {
+        return secondlang;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setSecondlang(String secondlang) {
+        this.secondlang = secondlang;
     }
 
-    public String getWechat() {
-        return wechat;
+    public String getContact() {
+        return contact;
     }
 
-    public void setWechat(String wechat) {
-        this.wechat = wechat;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public int getTimezone() {
@@ -84,12 +85,12 @@ public class User implements UserDetails {
         this.timezone = timezone;
     }
 
-    public String getSchool() {
-        return school;
+    public String getContactID() {
+        return contactID;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    public void setContactID(String contactID) {
+        this.contactID = contactID;
     }
 
     public String getHobby() {
@@ -99,6 +100,10 @@ public class User implements UserDetails {
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
+
+    public String getBio() { return bio; }
+
+    public void setBio(String bio) { this.bio = bio; }
 
     public String getPurpose() {
         return purpose;
