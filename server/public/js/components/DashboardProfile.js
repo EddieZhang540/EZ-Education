@@ -80,7 +80,7 @@ const DashboardProfile = {
                 <div class="row form-group">
                     <div class="col">
                         <label for="profile-bio">Description about you</label>
-                        <textarea class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }" v-on:click="editMode = true"></textarea>
+                        <textarea ref="bio" class="form-control" id="profile-bio" v-model="user.bio" v-bind:class="{ 'border-danger': errors.bio }" @click="editMode = true" v-on:click="focusBio"></textarea>
                     </div>
                 </div>
 
@@ -105,6 +105,11 @@ const DashboardProfile = {
             hobbiesArray.forEach((h, i) => {
                 let t = { key: i, value: h };
                 this.hobbies.push(t);
+            });
+        },
+        focusBio: function () {
+            this.$nextTick(() => {
+                this.$refs.bio.focus();
             });
         },
         update: function () {
